@@ -23,7 +23,6 @@
 @property (nonatomic, retain) Coordinate * geolocation;
 @property (nonatomic, retain) NSString * tags;
 @property (nonatomic, retain) NSString * postFormat;
-@property (nonatomic, retain) NSString * postFormatText;
 @property (nonatomic, retain) NSMutableSet * categories;
 
 /**

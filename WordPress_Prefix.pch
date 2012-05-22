@@ -26,7 +26,6 @@
 
 #ifdef DEBUG
 #define _AFNETWORKING_ALLOW_INVALID_SSL_CERTIFICATES_
-#define PANELS_EXPERIMENTAL
 #endif
 
 #endif

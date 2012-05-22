@@ -13,8 +13,6 @@
 #import "Blog.h"
 #import "SFHFKeychainUtils.h"
 #import "CameraPlusPickerManager.h"
-#import "PanelNavigationController.h"
-#import "SidebarViewController.h"
 
 @interface WordPressAppDelegate (Private)
 - (void)setAppBadge;
@@ -207,28 +205,13 @@ static WordPressAppDelegate *wordPressApp = NULL;
 	
 	if(DeviceIsPad() == NO)
 	{
-#ifdef PANELS_EXPERIMENTAL
-        NSError *error = nil;
-        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-        [fetchRequest setEntity:[NSEntityDescription entityForName:@"Blog" inManagedObjectContext:[self managedObjectContext]]];
-        NSArray *blogs = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
-
-        PostsViewController *postsViewController = [[[PostsViewController alloc] init] autorelease];
-        postsViewController.blog = [blogs objectAtIndex:0];
-        CommentsViewController *commentsViewController = [[[CommentsViewController alloc] init] autorelease];
-        commentsViewController.blog = [blogs objectAtIndex:0];
-        SidebarViewController *sidebarViewController = [[[SidebarViewController alloc] init] autorelease];
-        panelNavigationController = [[PanelNavigationController alloc] initWithDetailController:commentsViewController masterViewController:sidebarViewController];
-        window.rootViewController = panelNavigationController;
-#else
         UINavigationController *aNavigationController = [[[UINavigationController alloc] initWithRootViewController:blogsViewController] autorelease];
         aNavigationController.navigationBar.tintColor = [UIColor colorWithRed:31/256.0 green:126/256.0 blue:163/256.0 alpha:1.0];
         self.navigationController = aNavigationController;
         
         [window addSubview:aNavigationController.view];
         window.rootViewController = aNavigationController;
-#endif
-
+        
 		if ([Blog countWithContext:context] == 0) {
 			WelcomeViewController *wViewController = [[WelcomeViewController alloc] initWithNibName:@"WelcomeViewController" bundle:[NSBundle mainBundle]];
 			[blogsViewController.navigationController pushViewController:wViewController animated:YES];
@@ -597,10 +580,6 @@ static WordPressAppDelegate *wordPressApp = NULL;
 }
 
 - (void)showContentDetailViewController:(UIViewController *)viewController {
-#ifdef PANELS_EXPERIMENTAL
-    [panelNavigationController pushViewController:viewController animated:YES];
-    return;
-#endif
 	if (self.splitViewController) {
 		UINavigationController *navController = self.detailNavigationController;
 		// preserve left bar button item: issue #379
