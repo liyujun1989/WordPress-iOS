@@ -8,6 +8,7 @@
 //
 
 #import "XMLRPCDataCleaner.h"
+#import "CTidy.h"
 #import <iconv.h>
 
 @interface XMLRPCDataCleaner (CleaningSteps)
@@ -144,7 +145,7 @@
      */
     id _CTidyClass = NSClassFromString(@"CTidy");
     SEL _CTidySelector = NSSelectorFromString(@"tidy");
-    SEL _CTidyTidyStringSelector = NSSelectorFromString(@"tidyString:inputFormat:outputFormat:diagnostics:error");
+    SEL _CTidyTidyStringSelector = NSSelectorFromString(@"tidyString:inputFormat:outputFormat:diagnostics:error:");
     
     if (_CTidyClass && [_CTidyClass respondsToSelector:_CTidySelector]) {
         id _CTidyInstance = [_CTidyClass performSelector:_CTidySelector];
@@ -155,21 +156,24 @@
             invocation.selector = _CTidyTidyStringSelector;
 
             // arguments 0 and 1 are self and _cmd respectively, automatically set by NSInvocation
-            [invocation setArgument:str atIndex:2]; // tidyString:
-            uint8_t format = 1; // TidyFormat_XML
+            [invocation setArgument:&str atIndex:2]; // tidyString:
+            
+            //FIXME: CTidyFormat could not be defined 
+            //uint8_t format = 1; //doesn't work 
+            CTidyFormat format = 1; // TidyFormat_XML
+        
             [invocation setArgument:&format atIndex:3]; // inputFormat:
             [invocation setArgument:&format atIndex:4]; // outputFormat:
             NSError *err = nil;
-            [invocation setArgument:err atIndex:6];
+            [invocation setArgument:&err atIndex:6];
             
             [invocation invoke];
             
             NSString *result = nil;
             [invocation getReturnValue:&result];
-            
             if (result)
                 return result;
-        }
+        }        
     }
     
     // If we reach this point, something failed. Return the original string
