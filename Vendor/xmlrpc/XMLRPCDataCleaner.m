@@ -157,11 +157,7 @@
 
             // arguments 0 and 1 are self and _cmd respectively, automatically set by NSInvocation
             [invocation setArgument:&str atIndex:2]; // tidyString:
-            
-            //FIXME: CTidyFormat could not be defined 
-            //uint8_t format = 1; //doesn't work 
-            CTidyFormat format = 1; // TidyFormat_XML
-        
+            int format = 1; // TidyFormat_XML
             [invocation setArgument:&format atIndex:3]; // inputFormat:
             [invocation setArgument:&format atIndex:4]; // outputFormat:
             NSError *err = nil;
