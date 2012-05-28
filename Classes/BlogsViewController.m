@@ -313,20 +313,22 @@
     } else {
         self.tableView.frame = CGRectMake(tableFrame.origin.x, tableFrame.origin.y, tableFrame.size.width, 416);
     }
-    if (wantsPhotoButton && quickPhotoButton == nil) {
-        quickPhotoButton = [QuickPhotoButton button];
-        [quickPhotoButton setImage:[UIImage imageNamed:@"camera.png"] forState:UIControlStateNormal];
+    if (wantsPhotoButton) {
+        if (quickPhotoButton == nil) {
+            quickPhotoButton = [QuickPhotoButton button];
+            [quickPhotoButton setImage:[UIImage imageNamed:@"camera.png"] forState:UIControlStateNormal];
+            [quickPhotoButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+            [quickPhotoButton setTitle:NSLocalizedString(@"Photo", @"") forState:UIControlStateNormal];     
+            [quickPhotoButton.titleLabel setFont:[UIFont boldSystemFontOfSize:17]];
+            [quickPhotoButton setTitleShadowColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+            [quickPhotoButton addTarget:self action:@selector(quickPhotoPost) forControlEvents:UIControlEventTouchUpInside];
+            [quickPhotoButton retain];
+            [self.view addSubview:quickPhotoButton];
+            hasCameraPlus = [[CameraPlusPickerManager sharedManager] cameraPlusPickerAvailable];
+        }
         CGFloat x = wantsReaderButton ? (self.view.bounds.size.width / 2) : 0;
         CGFloat width = wantsReaderButton ? (self.view.bounds.size.width / 2) : self.view.bounds.size.width;
         quickPhotoButton.frame = CGRectMake(x, self.view.bounds.size.height - 83, width, 83);
-        [quickPhotoButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [quickPhotoButton setTitle:NSLocalizedString(@"Photo", @"") forState:UIControlStateNormal];     
-        [quickPhotoButton.titleLabel setFont:[UIFont boldSystemFontOfSize:17]];
-        [quickPhotoButton setTitleShadowColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
-        [quickPhotoButton addTarget:self action:@selector(quickPhotoPost) forControlEvents:UIControlEventTouchUpInside];
-        [quickPhotoButton retain];
-        [self.view addSubview:quickPhotoButton];
-        hasCameraPlus = [[CameraPlusPickerManager sharedManager] cameraPlusPickerAvailable];
     }
     if (wantsReaderButton && readerButton == nil) {
         readerButton = [QuickPhotoButton button];
