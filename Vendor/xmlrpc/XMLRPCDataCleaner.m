@@ -8,7 +8,6 @@
 //
 
 #import "XMLRPCDataCleaner.h"
-#import "CTidy.h"
 #import <iconv.h>
 
 @interface XMLRPCDataCleaner (CleaningSteps)
