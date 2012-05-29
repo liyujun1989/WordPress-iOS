@@ -380,11 +380,13 @@
         if ([error.domain isEqual:NSURLErrorDomain] && error.code == NSURLErrorUserCancelledAuthentication) {
             [self validationDidFail:nil];
         } else {
-            NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
-                                      NSLocalizedString(@"Unable to read the WordPress site on that URL. Tap Need Help? to learn more and resolve this error.", @""),NSLocalizedDescriptionKey,
-                                      nil];
-            NSError *err = [NSError errorWithDomain:@"org.wordpress.iphone" code:NSURLErrorBadURL userInfo:userInfo];
-            [self validationDidFail:err];
+            if ([error.domain isEqual:@"XMLRPC"]) {
+                NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
+                                          NSLocalizedString(@"Unable to read the WordPress site on that URL. Tap Need Help? to learn more and resolve this error.", @""),NSLocalizedDescriptionKey,
+                                          nil];
+                error = [NSError errorWithDomain:@"org.wordpress.iphone" code:NSURLErrorBadURL userInfo:userInfo];
+            }
+            [self validationDidFail:error];
         }
     }];
 }
