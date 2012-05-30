@@ -95,7 +95,7 @@
 }
 
 - (void)buttonAction:(WPKeyboardToolbarButtonItem *)sender {
-    WPFLogMethod();
+    WPFLog(@"Format button: %@", sender.actionTag);
     if (![sender.actionTag isEqualToString:@"done"]) {
         [[UIDevice currentDevice] playInputClick];        
     }

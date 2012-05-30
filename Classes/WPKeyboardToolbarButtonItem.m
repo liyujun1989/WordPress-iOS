@@ -25,7 +25,6 @@
 - (id)init {
     self = [super init];
     if (self) {
-        WPFLogMethod();
     }
     return self;
 }
@@ -33,7 +32,6 @@
 - (id)initWithCoder:(NSCoder *)coder {
     self = [super initWithCoder:coder];
     if (self) {
-        WPFLogMethod();
     }
     return self;
 }
@@ -41,7 +39,6 @@
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        WPFLogMethod();
 
 //        [self setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
 //        [self setTitleShadowColor:[UIColor whiteColor] forState:UIControlStateNormal];
