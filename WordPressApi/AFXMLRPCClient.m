@@ -236,7 +236,12 @@ static NSUInteger const kAFXMLRPCClientDefaultMaxConcurrentOperationCount = 4;
     }];
 
     if ( extra_debug_on == YES ) {
-        WPFLog(@"[XML-RPC] > %@", [[[NSString alloc] initWithData:[request HTTPBody] encoding:NSUTF8StringEncoding] autorelease]);
+        NSString *requestString = [[[NSString alloc] initWithData:[request HTTPBody] encoding:NSUTF8StringEncoding] autorelease];
+        if (getenv("WPDebugXMLRPC")) {
+            WPFLog(@"[XML-RPC] > %@", requestString);
+        } else {
+            WPFLog(@"[XML-RPC] > %@", [requestString stringByMatching:@"<methodName>(.*)</methodName>" capture:1]);
+        }
     }
     
     return operation;
