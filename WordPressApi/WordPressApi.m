@@ -12,6 +12,10 @@
 #import "TouchXML.h"
 #import "RegexKitLite.h"
 
+#ifndef WPFLog
+#define WPFLog(...) NSLog(__VA_ARGS__)
+#endif
+
 @interface WordPressApi ()
 @property (readwrite, nonatomic, retain) NSURL *xmlrpc;
 @property (readwrite, nonatomic, retain) NSString *username;

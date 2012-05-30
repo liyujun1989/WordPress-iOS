@@ -8,12 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-#if defined (WPFLog) 
-//do nothing
-#else
-#define WPFLog(...) NSLog(__VA_ARGS__)
-#endif
-
 /**
  WordPress API for iOS 
  */
