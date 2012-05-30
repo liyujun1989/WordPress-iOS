@@ -18,6 +18,7 @@
 @property (readwrite, nonatomic, retain) NSString *password;
 @property (readwrite, nonatomic, retain) AFXMLRPCClient *client;
 + (void)validateXMLRPCUrl:(NSURL *)url success:(void (^)())success failure:(void (^)(NSError *error))failure;
++ (void)logExtraInfo:(NSString *)format, ...;
 @end
 
 

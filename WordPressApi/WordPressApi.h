@@ -91,6 +91,4 @@
                       success:(void (^)(NSURL *xmlrpcURL))success
                       failure:(void (^)(NSError *error))failure;
 
-+ (void)logExtraInfo:(NSString *)format, ...;
-
 @end
