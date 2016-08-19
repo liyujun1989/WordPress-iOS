@@ -62,6 +62,7 @@ NSString *const kWPEditorConfigURLParamAvailable = @"available";
 NSString *const kWPEditorConfigURLParamEnabled = @"enabled";
 
 static CGFloat const RightSpacingOnExitNavbarButton = 5.0f;
+static CGFloat const RightSpacingOnOptionsNavbarButton = 8.0f;
 static CGFloat const CompactTitleButtonWidth = 115.0f;
 static CGFloat const RegularTitleButtonWidth = 300.0f;
 static CGFloat const RegularTitleButtonHeight = 30.0f;
@@ -1225,10 +1226,14 @@ EditImageDetailsViewControllerDelegate
         UIImage *image = [Gridicon iconOfType:GridiconTypeCog];
         NSString *optionsTitle = NSLocalizedString(@"Options", @"Title of the Post Settings navigation button in the Post Editor. Tapping shows settings and options related to the post being edited.");
         
-        _optionsBarButtonItem = [[UIBarButtonItem alloc] initWithImage:image
-                                                                 style:UIBarButtonItemStylePlain
-                                                                target:self
-                                                                action:@selector(showSettings)];
+        WPButtonForNavigationBar *button = [WPStyleGuide buttonForBarWithImage:image
+                                                             target:self
+                                                           selector:@selector(showSettings)];
+        
+        button.rightSpacing = RightSpacingOnOptionsNavbarButton;
+        button.leftSpacing = 0;
+        
+        _optionsBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
         _optionsBarButtonItem.accessibilityLabel = optionsTitle;
         _optionsBarButtonItem.accessibilityIdentifier = @"Options";
     }
