@@ -85,7 +85,7 @@
                                     </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="80" identifier="ViewsVistorsSectionHeight" id="Uwf-6d-J4e"/>
+                                    <constraint firstAttribute="height" constant="67" identifier="ViewsVistorsSectionHeight" id="Uwf-6d-J4e"/>
                                 </constraints>
                             </view>
                         </subviews>
