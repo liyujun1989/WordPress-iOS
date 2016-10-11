@@ -75,7 +75,7 @@ NSString *const SessionCount = @"session_count";
         [self setSuperProperty:SeenLegacyEditor toValue:@YES];
     }
     
-    [standardDefaults setBool:@YES forKey:CheckedIfUserHasSeenLegacyEditor];
+    [standardDefaults setBool:YES forKey:CheckedIfUserHasSeenLegacyEditor];
     [standardDefaults synchronize];
 }
 
@@ -434,11 +434,6 @@ NSString *const SessionCount = @"session_count";
             instructions = [WPAnalyticsTrackerMixpanelInstructionsForStat mixpanelInstructionsForEventName:@"Stats - Insights Accessed"];
             [instructions setSuperPropertyAndPeoplePropertyToIncrement:@"number_of_times_accessed_insights_screen_stats"];
             [instructions setCurrentDateForPeopleProperty:@"last_time_accessed_insights_screen_stats"];
-            break;
-        case WPAnalyticsStatStatsOpenedWebVersion:
-            instructions = [WPAnalyticsTrackerMixpanelInstructionsForStat mixpanelInstructionsForEventName:@"Stats - Opened Web Version"];
-            [instructions setSuperPropertyAndPeoplePropertyToIncrement:@"number_of_times_accessed_web_version_of_stats"];
-            [instructions setCurrentDateForPeopleProperty:@"last_time_accessed_web_version_of_stats"];
             break;
         case WPAnalyticsStatStatsPeriodDaysAccessed:
             instructions = [WPAnalyticsTrackerMixpanelInstructionsForStat mixpanelInstructionsForEventName:@"Stats - Period Days Accessed"];
@@ -1045,8 +1040,16 @@ NSString *const SessionCount = @"session_count";
         case WPAnalyticsStatLoginMagicLinkSucceeded:
             instructions = [WPAnalyticsTrackerMixpanelInstructionsForStat mixpanelInstructionsForEventName:@"Login - Magic Link succeeded"];
             break;
+        case WPAnalyticsStatMeTabAccessed:
+            instructions = [WPAnalyticsTrackerMixpanelInstructionsForStat mixpanelInstructionsForEventName:@"Me Tab - Accessed"];
+            [instructions setSuperPropertyAndPeoplePropertyToIncrement:@"number_of_times_accessed_me_tab"];
+            break;
+        case WPAnalyticsStatMySitesTabAccessed:
+            instructions = [WPAnalyticsTrackerMixpanelInstructionsForStat mixpanelInstructionsForEventName:@"My Site - Accessed"];
+            [instructions setSuperPropertyAndPeoplePropertyToIncrement:@"number_of_times_accessed_my_site"];
+            break;
 
-            // To be implemented
+        // To be implemented
         case WPAnalyticsStatAppUpgraded:
         case WPAnalyticsStatDefaultAccountChanged:
         case WPAnalyticsStatLogSpecialCondition:

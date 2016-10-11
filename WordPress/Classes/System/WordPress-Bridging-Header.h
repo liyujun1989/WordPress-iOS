@@ -24,7 +24,6 @@
 #import "Constants.h"
 #import "ContextManager.h"
 #import "Coordinate.h"
-#import "CreateAccountAndBlogViewController.h"
 #import "CustomHighlightButton.h"
 
 #import "DDLogSwift.h"
@@ -38,7 +37,6 @@
 
 #import "LoginFacade.h"
 #import "LoginFields.h"
-#import "LoginViewController.h"
 
 #import "Media.h"
 #import "MediaService.h"
@@ -159,3 +157,5 @@
 #import <WordPressShared/WPTableViewCell.h>
 #import <WordPressShared/WPTableViewSectionHeaderFooterView.h>
 #import <WordPressShared/UIImage+Util.h>
+
+#import <FLAnimatedImage/FLAnimatedImage.h>
