@@ -1459,7 +1459,10 @@ EditImageDetailsViewControllerDelegate
                         [SVProgressHUD showSuccessWithStatus:hudText];
                         [WPNotificationFeedbackGenerator notificationOccurred:WPNotificationFeedbackTypeSuccess];
 
-                        stopEditingAndDismiss();
+//                        stopEditingAndDismiss();
+                        PostPostViewController *postPostViewController = [PostPostViewController new];
+                        [self.navigationController pushViewController:postPostViewController animated:YES];
+                        
                     } failure:^(NSError *error) {
                         DDLogError(@"post failed: %@", [error localizedDescription]);
                         NSString *hudText;
