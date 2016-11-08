@@ -33,6 +33,10 @@ import WordPressShared
     @IBOutlet private weak var tagButton: UIButton!
     @IBOutlet private weak var attributionView: ReaderCardDiscoverAttributionView!
     @IBOutlet private weak var actionStackView: UIStackView!
+    @IBOutlet private weak var galleryStackView: UIStackView!
+    @IBOutlet private weak var galleryCollectionView: UICollectionView!
+    @IBOutlet private weak var viewGalleryButton: UIButton!
+    @IBOutlet private weak var galleryImageCountLabel: UILabel!
 
     // Helper Views
     @IBOutlet private weak var borderedView: UIView!
@@ -180,6 +184,7 @@ import WordPressShared
         WPStyleGuide.applyReaderCardTagButtonStyle(tagButton)
         WPStyleGuide.applyReaderCardActionButtonStyle(commentActionButton)
         WPStyleGuide.applyReaderCardActionButtonStyle(likeActionButton)
+        WPStyleGuide.applyReaderCardTagButtonStyle(viewGalleryButton)
     }
 
 
@@ -194,6 +199,7 @@ import WordPressShared
         tagButton.titleLabel?.backgroundColor = UIColor.whiteColor()
         commentActionButton.titleLabel?.backgroundColor = UIColor.whiteColor()
         likeActionButton.titleLabel?.backgroundColor = UIColor.whiteColor()
+        viewGalleryButton.titleLabel?.backgroundColor = UIColor.whiteColor()
     }
 
     public func configureCell(contentProvider:ReaderPostContentProvider) {
@@ -203,6 +209,7 @@ import WordPressShared
         configureFeaturedImageIfNeeded()
         configureTitle()
         configureSummary()
+        configureGallery()
         configureAttribution()
         configureTag()
         configureActionButtons()
@@ -310,6 +317,36 @@ import WordPressShared
             summaryLabel.attributedText = nil
             summaryLabel.hidden = true
         }
+    }
+
+    private func configureGallery() {
+        let galleryTitleStr = NSLocalizedString("View Images",
+                                                comment: "Label for a button that the user presses to view an image gallery.")
+
+        viewGalleryButton.setTitle(galleryTitleStr, forState: .Normal)
+        viewGalleryButton.setTitle(galleryTitleStr, forState: .Highlighted)
+
+        if (contentProvider == nil || !contentProvider!.hasGallery()) {
+            galleryStackView.hidden = true
+        } else {
+            galleryImageCountLabel.attributedText = attributedTextForGalleryCount(contentProvider!.galleryImages().count)
+            // TODO: Configure gallery view!
+            galleryStackView.hidden = false
+        }
+    }
+
+    private func attributedTextForGalleryCount(pictureCount:Int) -> NSAttributedString? {
+        let attrStr = NSMutableAttributedString()
+
+        let imagesStr = NSLocalizedString("images",
+                                          comment: "Part of a label letting the user know how many images are in a image gallery. For example: '6 images'")
+
+        let fullStr = String(format: "%d %@ ", pictureCount, imagesStr)
+        let attributes = WPStyleGuide.readerCardReadingTimeAttributes()
+        let attrImageCount = NSAttributedString(string: fullStr, attributes: attributes)
+        attrStr.appendAttributedString(attrImageCount)
+
+        return attrStr
     }
 
     private func configureAttribution() {
@@ -449,6 +486,9 @@ import WordPressShared
         }
     }
 
+    @IBAction func didTapGalleryButton(sender: UIButton) {
+        print("Tapped gallery image button!")
+    }
 
     // MARK: - Custom UI Actions
 

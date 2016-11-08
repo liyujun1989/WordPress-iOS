@@ -100,6 +100,42 @@
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VLn-ld-IDB">
                                         <rect key="frame" x="0.0" y="59" width="288" height="55"/>
+                                        <subviews>
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="eSM-k9-sbQ">
+                                                <rect key="frame" x="0.0" y="0.0" width="207" height="55"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Z2L-Ov-mQE">
+                                                    <size key="itemSize" width="50" height="50"/>
+                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                </collectionViewFlowLayout>
+                                            </collectionView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="-1" translatesAutoresizingMaskIntoConstraints="NO" id="pL2-KO-H6Q">
+                                                <rect key="frame" x="207" y="0.0" width="81" height="55"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W15-V8-KL0">
+                                                        <rect key="frame" x="0.0" y="0.0" width="81" height="41.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <state key="normal" title="View Gallery"/>
+                                                        <connections>
+                                                            <action selector="didTapGalleryButton:" destination="IB3-vN-rW4" eventType="touchUpInside" id="VLs-3T-g1d"/>
+                                                        </connections>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hYD-vJ-fCP">
+                                                        <rect key="frame" x="0.0" y="40.5" width="60.5" height="14.5"/>
+                                                        <attributedString key="attributedText">
+                                                            <fragment content="XX Images">
+                                                                <attributes>
+                                                                    <font key="NSFont" metaFont="cellTitle"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                        </attributedString>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="55" id="t6q-Bn-rzQ"/>
                                         </constraints>
@@ -236,6 +272,9 @@
                 <outlet property="contentStackView" destination="k3b-5o-H9u" id="B82-c0-vlU"/>
                 <outlet property="featuredImageView" destination="D4Q-6L-ZIL" id="Ikr-qP-2wv"/>
                 <outlet property="featuredMediaHeightConstraint" destination="6Qh-iW-StJ" id="uf6-jH-tzf"/>
+                <outlet property="galleryCollectionView" destination="eSM-k9-sbQ" id="ogZ-7Z-bzU"/>
+                <outlet property="galleryImageCountLabel" destination="hYD-vJ-fCP" id="Jds-pU-H3d"/>
+                <outlet property="galleryStackView" destination="VLn-ld-IDB" id="yml-rP-oCM"/>
                 <outlet property="headerBlogButton" destination="l5X-fR-34a" id="kYK-6e-pwI"/>
                 <outlet property="interfaceVerticalSizingHelperView" destination="Aav-jm-io6" id="2VW-l9-UiQ"/>
                 <outlet property="likeActionButton" destination="z4x-8W-5Dc" id="anJ-1J-8im"/>
@@ -243,8 +282,9 @@
                 <outlet property="summaryLabel" destination="u1n-gR-1xw" id="jsD-Vc-hr5"/>
                 <outlet property="tagButton" destination="YJw-y3-ygi" id="q3o-S6-E2E"/>
                 <outlet property="titleLabel" destination="Zf5-cD-Pd2" id="56V-Zc-1sF"/>
+                <outlet property="viewGalleryButton" destination="W15-V8-KL0" id="42I-mc-bNX"/>
             </connections>
-            <point key="canvasLocation" x="478" y="492.5"/>
+            <point key="canvasLocation" x="589" y="447.5"/>
         </tableViewCell>
     </objects>
     <resources>

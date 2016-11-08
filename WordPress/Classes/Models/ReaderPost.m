@@ -9,6 +9,7 @@
 #import "WPAccount.h"
 #import "WPAvatarSource.h"
 #import "WordPress-Swift.h"
+#import "DisplayableImageHelper.h"
 
 // These keys are used in the getStoredComment method
 NSString * const ReaderPostStoredCommentIDKey = @"commentID";
@@ -303,6 +304,22 @@ NSString * const ReaderPostStoredCommentTextKey = @"comment";
         return (NSDictionary *)jsonObj;
     }
     return nil;
+}
+
+- (BOOL)hasGallery
+{
+    NSSet *images = self.galleryImages;
+    if (images && images.count > 1) {
+        return YES;
+    }
+    
+    return NO;
+}
+
+- (NSSet *)galleryImages
+{
+    NSString *content = [self contentForDisplay];
+    return [DisplayableImageHelper searchPostContentForGalleryImages:content];
 }
 
 
