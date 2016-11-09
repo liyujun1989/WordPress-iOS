@@ -137,7 +137,7 @@
                                             </stackView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="55" id="t6q-Bn-rzQ"/>
+                                            <constraint firstAttribute="height" priority="999" constant="55" id="t6q-Bn-rzQ"/>
                                         </constraints>
                                     </stackView>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nU7-76-6MV" customClass="ReaderCardDiscoverAttributionView" customModule="WordPress">
@@ -273,6 +273,7 @@
                 <outlet property="featuredImageView" destination="D4Q-6L-ZIL" id="Ikr-qP-2wv"/>
                 <outlet property="featuredMediaHeightConstraint" destination="6Qh-iW-StJ" id="uf6-jH-tzf"/>
                 <outlet property="galleryCollectionView" destination="eSM-k9-sbQ" id="ogZ-7Z-bzU"/>
+                <outlet property="galleryHeightConstraint" destination="t6q-Bn-rzQ" id="LS5-wj-Eub"/>
                 <outlet property="galleryImageCountLabel" destination="hYD-vJ-fCP" id="Jds-pU-H3d"/>
                 <outlet property="galleryStackView" destination="VLn-ld-IDB" id="yml-rP-oCM"/>
                 <outlet property="headerBlogButton" destination="l5X-fR-34a" id="kYK-6e-pwI"/>

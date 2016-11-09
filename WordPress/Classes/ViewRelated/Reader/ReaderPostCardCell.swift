@@ -37,6 +37,7 @@ import WordPressShared
     @IBOutlet private weak var galleryCollectionView: UICollectionView!
     @IBOutlet private weak var viewGalleryButton: UIButton!
     @IBOutlet private weak var galleryImageCountLabel: UILabel!
+    @IBOutlet private weak var galleryHeightConstraint: NSLayoutConstraint!
 
     // Helper Views
     @IBOutlet private weak var borderedView: UIView!
@@ -327,10 +328,12 @@ import WordPressShared
         viewGalleryButton.setTitle(galleryTitleStr, forState: .Highlighted)
 
         if (contentProvider == nil || !contentProvider!.hasGallery()) {
+            galleryHeightConstraint.constant = 0
             galleryStackView.hidden = true
         } else {
             galleryImageCountLabel.attributedText = attributedTextForGalleryCount(contentProvider!.galleryImages().count)
             // TODO: Configure gallery view!
+            galleryHeightConstraint.constant = 55
             galleryStackView.hidden = false
         }
     }
