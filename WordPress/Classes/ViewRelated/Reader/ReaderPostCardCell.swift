@@ -564,14 +564,14 @@ extension ReaderPostCardCell: UICollectionViewDelegate, UICollectionViewDataSour
     public func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(galleryCellIdentifier, forIndexPath: indexPath) as! ReaderPostGalleryStripCell
 
-        let galleryImage: GalleryImageInfo = galleryImagesToDisplay[indexPath.row]
+        let galleryImage: GalleryImageInfo = galleryImagesToDisplay[indexPath.item]
         cell.setGalleryImage(galleryImage.imageURL, isPrivate: galleryImage.isPrivate)
 
         return cell
     }
 
     public func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        //presentLightBoxVC(indexPath.row)
+        //presentLightBoxVC(indexPath.item)
     }
 }
 
