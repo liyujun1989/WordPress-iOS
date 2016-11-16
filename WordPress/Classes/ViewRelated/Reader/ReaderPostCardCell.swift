@@ -61,6 +61,11 @@ import WordPressShared
     private let minimumMinutesToRead = 2
     private var currentLoadedCardImageURL: String?
 
+    // Gallery vars
+    private let galleryCellIdentifier = "GalleryStripCell"
+    private var storedOffsets = [Int: CGFloat]()
+    private var galleryImagesToDisplay: [GalleryImageInfo] = []
+
     // MARK: - Accessors
 
     public var enableLoggedInFeatures = true
@@ -128,6 +133,7 @@ import WordPressShared
         applyOpaqueBackgroundColors()
         setupFeaturedImageView()
         setupSummaryLabel()
+        setupGalleryView()
         setupAttributionView()
         setupCommentActionButton()
         setupLikeActionButton()
@@ -140,6 +146,11 @@ import WordPressShared
 
 
     // MARK: - Configuration
+
+    private func setupGalleryView() {
+        let nibName = UINib(nibName: "ReaderCardGalleryStripCell", bundle:nil)
+        galleryCollectionView.registerNib(nibName, forCellWithReuseIdentifier: galleryCellIdentifier)
+    }
 
     private func setupAttributionView() {
         attributionView.delegate = self
@@ -321,9 +332,9 @@ import WordPressShared
     }
 
     private func configureGallery() {
+        setCollectionViewDataSourceDelegate(self)
         let galleryTitleStr = NSLocalizedString("View Images",
                                                 comment: "Label for a button that the user presses to view an image gallery.")
-
         viewGalleryButton.setTitle(galleryTitleStr, forState: .Normal)
         viewGalleryButton.setTitle(galleryTitleStr, forState: .Highlighted)
 
@@ -332,10 +343,27 @@ import WordPressShared
             galleryStackView.hidden = true
         } else {
             galleryImageCountLabel.attributedText = attributedTextForGalleryCount(contentProvider!.galleryImages().count)
-            // TODO: Configure gallery view!
             galleryHeightConstraint.constant = 55
             galleryStackView.hidden = false
+
+            for item in contentProvider!.galleryImages() {
+                let galleryImageURL = NSURL(string: item as! String)
+                let galleryImage = GalleryImageInfo(imageURL: galleryImageURL!, isPrivate: contentProvider!.isPrivate())
+                galleryImagesToDisplay.append(galleryImage)
+            }
         }
+    }
+
+    private func resetGallery() {
+        galleryImagesToDisplay.removeAll()
+        galleryCollectionView.reloadData()
+    }
+
+    private func setCollectionViewDataSourceDelegate<D: protocol<UICollectionViewDataSource, UICollectionViewDelegate>>(dataSourceDelegate: D) {
+        galleryCollectionView.delegate = dataSourceDelegate
+        galleryCollectionView.dataSource = dataSourceDelegate
+        galleryCollectionView.setContentOffset(galleryCollectionView.contentOffset, animated:false) // Stops collection view if it was scrolling.
+        resetGallery()
     }
 
     private func attributedTextForGalleryCount(pictureCount:Int) -> NSAttributedString? {
@@ -517,5 +545,43 @@ extension ReaderPostCardCell : ReaderCardDiscoverAttributionViewDelegate
 {
     public func attributionActionSelectedForVisitingSite(view: ReaderCardDiscoverAttributionView) {
         delegate?.readerCell(self, attributionActionForProvider: contentProvider!)
+    }
+}
+
+extension ReaderPostCardCell: UICollectionViewDelegate, UICollectionViewDataSource
+{
+    public func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        // The following needs to be called here to prevent a NSInternalInconsistencyException in the collection view
+        // See: http://stackoverflow.com/questions/18339030/uicollectionview-assertion-error-on-stale-data
+        collectionView.collectionViewLayout.invalidateLayout()
+        return 1
+    }
+
+    public func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return galleryImagesToDisplay.count
+    }
+
+    public func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(galleryCellIdentifier, forIndexPath: indexPath) as! ReaderPostGalleryStripCell
+
+        let galleryImage: GalleryImageInfo = galleryImagesToDisplay[indexPath.row]
+        cell.setGalleryImage(galleryImage.imageURL, isPrivate: galleryImage.isPrivate)
+
+        return cell
+    }
+
+    public func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        //presentLightBoxVC(indexPath.row)
+    }
+}
+
+/// Stores gallery image details
+internal struct GalleryImageInfo
+{
+    let imageURL: NSURL
+    let isPrivate: Bool
+
+    var description: String {
+        return "Gallery Image - URL: \(imageURL) isPrivate: \(isPrivate)"
     }
 }
