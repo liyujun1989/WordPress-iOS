@@ -132,7 +132,6 @@ class NotificationsViewController : UITableViewController
     }
 
 
-
     // MARK: - UITableView Methods
 
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -217,7 +216,7 @@ class NotificationsViewController : UITableViewController
             return
         }
 
-        detailsViewController.setupWithNotification(note)
+        detailsViewController.note = note
         detailsViewController.onDeletionRequestCallback = { request in
             self.showUndeleteForNoteWithID(note.objectID, request: request)
         }
@@ -632,8 +631,16 @@ extension NotificationsViewController
             return
         }
 
+        let start = NSDate()
+
         service.sync { _ in
-            self.refreshControl?.endRefreshing()
+
+            let delta = max(Syncing.minimumPullToRefreshDelay + start.timeIntervalSinceNow, 0)
+            let delay = dispatch_time(DISPATCH_TIME_NOW, Int64(delta * Double(NSEC_PER_SEC)))
+
+            dispatch_after(delay, dispatch_get_main_queue()) { _ in
+                self.refreshControl?.endRefreshing()
+            }
         }
     }
 }
@@ -1094,6 +1101,7 @@ private extension NotificationsViewController
     }
 
     enum Syncing {
+        static let minimumPullToRefreshDelay = NSTimeInterval(1.5)
         static let pushMaxWait = NSTimeInterval(1.5)
         static let syncTimeout = NSTimeInterval(10)
         static let undoTimeout = NSTimeInterval(4)
