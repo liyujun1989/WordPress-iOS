@@ -520,7 +520,7 @@ import WordPressShared
     }
 
     @IBAction func didTapGalleryButton(sender: UIButton) {
-        // TODO: Remove this and complete lightbox 
+        // TODO: Remove this and complete lightbox
         print("Tapped gallery image button!")
         print("Gallery cell count \(galleryImagesToDisplay.count)")
         reloadGallery()
@@ -555,13 +555,6 @@ extension ReaderPostCardCell : ReaderCardDiscoverAttributionViewDelegate
 
 extension ReaderPostCardCell: UICollectionViewDelegate, UICollectionViewDataSource
 {
-    public func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        // The following needs to be called here to prevent a NSInternalInconsistencyException in the collection view
-        // See: http://stackoverflow.com/questions/18339030/uicollectionview-assertion-error-on-stale-data
-        collectionView.collectionViewLayout.invalidateLayout()
-        return 1
-    }
-
     public func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return galleryImagesToDisplay.count
     }
