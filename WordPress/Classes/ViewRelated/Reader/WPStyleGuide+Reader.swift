@@ -46,7 +46,7 @@ extension WPStyleGuide
     public class func readerCardBlogNameLabelDisabledTextColor() -> UIColor {
         return darkGrey()
     }
-    
+
     public class func galleryPlaceholderImage() -> UIImage {
         return UIImage(named: "blavatar-default")!
     }

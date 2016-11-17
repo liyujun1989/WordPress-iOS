@@ -337,6 +337,7 @@ import WordPressShared
                                                 comment: "Label for a button that the user presses to view an image gallery.")
         viewGalleryButton.setTitle(galleryTitleStr, forState: .Normal)
         viewGalleryButton.setTitle(galleryTitleStr, forState: .Highlighted)
+        galleryImagesToDisplay.removeAll()
 
         if (contentProvider == nil || !contentProvider!.hasGallery()) {
             galleryHeightConstraint.constant = 0
@@ -352,18 +353,19 @@ import WordPressShared
                 galleryImagesToDisplay.append(galleryImage)
             }
         }
+        reloadGallery()
+
     }
 
-    private func resetGallery() {
-        galleryImagesToDisplay.removeAll()
+    private func reloadGallery() {
         galleryCollectionView.reloadData()
+        galleryCollectionView.collectionViewLayout.invalidateLayout()
     }
 
     private func setCollectionViewDataSourceDelegate<D: protocol<UICollectionViewDataSource, UICollectionViewDelegate>>(dataSourceDelegate: D) {
         galleryCollectionView.delegate = dataSourceDelegate
         galleryCollectionView.dataSource = dataSourceDelegate
         galleryCollectionView.setContentOffset(galleryCollectionView.contentOffset, animated:false) // Stops collection view if it was scrolling.
-        resetGallery()
     }
 
     private func attributedTextForGalleryCount(pictureCount:Int) -> NSAttributedString? {
@@ -518,7 +520,10 @@ import WordPressShared
     }
 
     @IBAction func didTapGalleryButton(sender: UIButton) {
+        // TODO: Remove this and complete lightbox 
         print("Tapped gallery image button!")
+        print("Gallery cell count \(galleryImagesToDisplay.count)")
+        reloadGallery()
     }
 
     // MARK: - Custom UI Actions
