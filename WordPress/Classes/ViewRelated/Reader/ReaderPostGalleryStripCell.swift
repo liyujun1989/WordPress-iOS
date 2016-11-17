@@ -11,7 +11,7 @@ class ReaderPostGalleryStripCell: UICollectionViewCell
 
         if (!isPrivate) {
             let url = PhotonImageURLHelper.photonURLWithSize(size, forImageURL: galleryImageURL)
-            galleryImageView.setImageWithURL(url, placeholderImage:nil)
+            galleryImageView.setImageWithURL(url, placeholderImage:WPStyleGuide.galleryPlaceholderImage())
         } else if (galleryImageURL.host != nil) && galleryImageURL.host!.hasSuffix("wordpress.com") {
             // private wpcom image needs special handling.
             let url = WPImageURLHelper.imageURLWithSize(size, forImageURL: galleryImageURL)
@@ -19,10 +19,8 @@ class ReaderPostGalleryStripCell: UICollectionViewCell
             galleryImageView.setImageWithURLRequest(request, placeholderImage: WPStyleGuide.galleryPlaceholderImage(), success: nil, failure: nil)
         } else {
             // private but not a wpcom hosted image
-            galleryImageView.setImageWithURL(galleryImageURL, placeholderImage:nil)
+            galleryImageView.setImageWithURL(galleryImageURL, placeholderImage:WPStyleGuide.galleryPlaceholderImage())
         }
-
-        galleryImageView.setImageWithURL(galleryImageURL, placeholderImage: nil)
     }
 
     private func requestForURL(url:NSURL) -> NSURLRequest {
