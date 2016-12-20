@@ -1,5 +1,4 @@
 PODS:
-  - 1PasswordExtension (1.8.1)
   - AFNetworking (3.1.0):
     - AFNetworking/NSURLSession (= 3.1.0)
     - AFNetworking/Reachability (= 3.1.0)
@@ -159,7 +158,6 @@ PODS:
   - wpxmlrpc (0.8.2)
 
 DEPENDENCIES:
-  - 1PasswordExtension (= 1.8.1)
   - AFNetworking (= 3.1.0)
   - Automattic-Tracks-iOS (from `https://github.com/Automattic/Automattic-Tracks-iOS.git`, tag `0.1.2`)
   - BuddyBuildSDK (~> 1.0.11)
@@ -230,7 +228,6 @@ CHECKOUT OPTIONS:
     :tag: 0.0.6
 
 SPEC CHECKSUMS:
-  1PasswordExtension: 00d6f4caae77c19ba33045b8569fbeb9689f0d1d
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
   Automattic-Tracks-iOS: 4903e125d88e564c68dedbb66c53a97740e89336
@@ -269,6 +266,6 @@ SPEC CHECKSUMS:
   WPMediaPicker: 9ba8c29a1de4b07696356f541c01eeaa6dd14c47
   wpxmlrpc: 38623cc415117914d6ab5bf2ab8a57a4076cc469
 
-PODFILE CHECKSUM: 61faba732c28ba0940e2d107de55f2852b714e52
+PODFILE CHECKSUM: 42d1124786ed6a80592893db2dfd5ef3bda824bc
 
 COCOAPODS: 1.1.1
