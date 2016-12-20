@@ -5087,7 +5087,7 @@
 				93E5284E19A7741A003A1A9C /* Embed App Extensions */,
 				2F10F29417416E4D8CFE9A58 /* [CP] Embed Pods Frameworks */,
 				9867B4878E9B37ACD2FE0296 /* [CP] Copy Pods Resources */,
-				E1791CEC1E0992EC00A30591 /* [Carthage] Copy Frameworks */,
+				E1791CEC1E0992EC00A30591 /* [Punic] Copy Frameworks */,
 			);
 			buildRules = (
 			);
@@ -5753,7 +5753,7 @@
 			shellScript = "DERIVED_TMP_DIR=/tmp/WordPress.build\ncp \"${SOURCE_ROOT}/Credentials/ApiCredentials.m\" ${DERIVED_TMP_DIR}/ApiCredentials.m\n\necho \"Checking for WordPress.com Oauth App Secret in $WPCOM_CONFIG\"\nif [ -a $WPCOM_CONFIG ]\nthen\necho \"Config found\"\nsource $WPCOM_CONFIG\nelse\necho \"No config found\"\nexit 0\nfi\n\nif [ -z $WPCOM_APP_ID ]\nthen\necho \"warning: Missing WPCOM_APP_ID\"\nexit 1\nfi\nif [ -z $WPCOM_APP_SECRET ]\nthen\necho \"warning: Missing WPCOM_APP_SECRET\"\nexit 1\nfi\n\necho \"Generating credentials file in ${DERIVED_TMP_DIR}/ApiCredentials.m\"\nruby \"${SOURCE_ROOT}/Credentials/gencredentials.rb\" > ${DERIVED_TMP_DIR}/ApiCredentials.m\n";
 			showEnvVarsInLog = 0;
 		};
-		E1791CEC1E0992EC00A30591 /* [Carthage] Copy Frameworks */ = {
+		E1791CEC1E0992EC00A30591 /* [Punic] Copy Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -5761,12 +5761,12 @@
 			inputPaths = (
 				"$(SRCROOT)/../Carthage/Build/iOS/OnePasswordExtension.framework",
 			);
-			name = "[Carthage] Copy Frameworks";
+			name = "[Punic] Copy Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "carthage copy-frameworks";
+			shellScript = "punic copy-frameworks";
 		};
 		E18E5C5C1CD9EFBB00B70AFD /* Lint check */ = {
 			isa = PBXShellScriptBuildPhase;
