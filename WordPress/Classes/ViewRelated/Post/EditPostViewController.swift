@@ -169,7 +169,15 @@ class EditPostViewController: UIViewController {
         navController.isToolbarHidden = false // Fixes incorrect toolbar animation.
         navController.modalPresentationStyle = .fullScreen
 
-        return navController
+        let postSettingsViewController = PostSettingsViewController(post: postViewController!.post)
+
+        let navigationController = UINavigationController(rootViewController: postSettingsViewController!)
+        let splitViewController = WPSplitViewController()
+        splitViewController.preferredDisplayMode = .allVisible
+        splitViewController.collapseMode = .AlwaysKeepDetail
+        splitViewController.viewControllers = [navigationController, navController]
+
+        return splitViewController
     }
 
     fileprivate func editPostInTextEditor() -> UIViewController {

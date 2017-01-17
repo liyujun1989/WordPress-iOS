@@ -1061,7 +1061,7 @@ EditImageDetailsViewControllerDelegate
 {
     if ([self isEditing]) {
         if (editingChanged) {
-            [self.navigationItem setRightBarButtonItems:@[self.moreBarButtonItem,
+            [self.navigationItem setRightBarButtonItems:@[self.splitViewController.displayModeButtonItem,
                                                           self.saveBarButtonItem] animated:YES];
         } else {
             self.saveBarButtonItem.title = [self saveBarButtonItemTitle];
@@ -1069,8 +1069,7 @@ EditImageDetailsViewControllerDelegate
 
         self.saveBarButtonItem.enabled = [self.post canSave];
 	} else {
-        NSMutableArray* rightBarButtons = [[NSMutableArray alloc] initWithArray:@[self.moreBarButtonItem,
-                                                                                  self.editBarButtonItem]];
+        NSMutableArray* rightBarButtons = [[NSMutableArray alloc] initWithArray:@[self.splitViewController.displayModeButtonItem, self.editBarButtonItem]];
 
 		[self.navigationItem setRightBarButtonItems:rightBarButtons animated:NO];
 	}
