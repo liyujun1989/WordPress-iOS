@@ -53,7 +53,7 @@
 {
     UIButton *button = [[UIButton alloc] init];
     [button addTarget:self action:@selector(cancelButtonPressed) forControlEvents:UIControlEventTouchUpInside];
-    button.titleLabel.font = [WPFontManager systemRegularFontOfSize:16.0];
+    button.titleLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleCallout];
     [button setTitle:NSLocalizedString(@"Cancel", @"") forState:UIControlStateNormal];
 
     UIEdgeInsets inset = button.contentEdgeInsets;

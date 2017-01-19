@@ -85,7 +85,7 @@
                                                 <rect key="frame" x="10" y="10" width="63" height="40"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="63" id="oN6-Bi-mOt"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="63" id="oN6-Bi-mOt"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <state key="normal" title="Cancel">
@@ -170,7 +170,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Ey-S3-dc2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1538" y="255.5"/>
+            <point key="canvasLocation" x="1825" y="262"/>
         </scene>
         <!--Menu Item Type View Controller-->
         <scene sceneID="cVP-ZN-gjI">
@@ -217,7 +217,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eMv-Up-xR4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="927" y="255.5"/>
+            <point key="canvasLocation" x="1148" y="262"/>
         </scene>
     </scenes>
 </document>

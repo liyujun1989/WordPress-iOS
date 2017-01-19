@@ -58,7 +58,7 @@
 
         NSAssert(_textField != nil, @"textField is nil");
 
-        UIFont *font = [WPFontManager systemRegularFontOfSize:16.0];
+        UIFont *font = [UIFont preferredFontForTextStyle:UIFontTextStyleCallout];
         NSString *placeholder = NSLocalizedString(@"Search...", @"Menus search bar placeholder text.");
         NSDictionary *attributes = @{NSFontAttributeName: font, NSForegroundColorAttributeName: [WPStyleGuide greyDarken10]};
         _textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:placeholder attributes:attributes];
@@ -165,7 +165,7 @@
     [textField addTarget:self action:@selector(textFieldDidEndOnExit:) forControlEvents:UIControlEventEditingDidEndOnExit];
     [textField addTarget:self action:@selector(textFieldValueDidChange:) forControlEvents:UIControlEventEditingChanged];
 
-    UIFont *font = [WPFontManager systemRegularFontOfSize:16.0];
+    UIFont *font = [UIFont preferredFontForTextStyle:UIFontTextStyleCallout];
     textField.font = font;
 
     NSAssert(_contentStackView != nil, @"contentStackView is nil");
@@ -183,7 +183,7 @@
     UILabel *label = [[UILabel alloc] init];
     label.text = NSLocalizedString(@"Cancel", @"Menus cancel button within text bar while editing items.");
     label.textColor = [WPStyleGuide greyDarken20];
-    label.font = [WPFontManager systemRegularFontOfSize:14.0];
+    label.font = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
     label.userInteractionEnabled = YES;
 
     NSAssert(_stackView != nil, @"stackView is nil");

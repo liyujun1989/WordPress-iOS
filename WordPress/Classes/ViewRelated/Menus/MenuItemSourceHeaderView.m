@@ -85,7 +85,7 @@
     label.translatesAutoresizingMaskIntoConstraints = NO;
     label.numberOfLines = 1;
     label.lineBreakMode = NSLineBreakByTruncatingTail;
-    label.font = [WPFontManager systemRegularFontOfSize:16.0];
+    label.font = [UIFont preferredFontForTextStyle:UIFontTextStyleCallout];
     label.backgroundColor = [UIColor whiteColor];
 
     NSAssert(_stackView != nil, @"stackView is nil");

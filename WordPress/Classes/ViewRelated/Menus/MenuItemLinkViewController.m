@@ -30,7 +30,7 @@ static CGFloat const LinkTextBarHeight = 48.0;
     label.translatesAutoresizingMaskIntoConstraints = NO;
     label.text = [NSLocalizedString(@"Link Address (URL)", @"Menus title label when editing a menu item as a link.") uppercaseString];
     label.textColor = [WPStyleGuide greyDarken10];
-    label.font = [WPFontManager systemSemiBoldFontOfSize:12.0];
+    label.font = [WPStyleGuide regularTextFont];
 
     [self.stackView addArrangedSubview:label];
     _label = label;

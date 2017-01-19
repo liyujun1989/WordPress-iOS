@@ -75,7 +75,7 @@
 {
     UILabel *label = [[UILabel alloc] init];
     label.numberOfLines = 0;
-    label.font = [WPFontManager systemRegularFontOfSize:13.0];
+    label.font = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
     label.textColor = [WPStyleGuide grey];
     _subTitleLabel = label;
 
@@ -88,7 +88,7 @@
 {
     UILabel *label = [[UILabel alloc] init];
     label.numberOfLines = 1;
-    label.font = [WPFontManager systemRegularFontOfSize:17.0];
+    label.font = [WPStyleGuide regularTextFont];
     label.textColor = [WPStyleGuide darkGrey];
     label.adjustsFontSizeToFitWidth = YES;
     label.minimumScaleFactor = 0.70;

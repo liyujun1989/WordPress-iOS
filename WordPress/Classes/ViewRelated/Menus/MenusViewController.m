@@ -123,7 +123,7 @@ static CGFloat const ScrollViewOffsetAdjustmentPadding = 10.0;
 - (void)setupItemsLoadingLabel
 {
     UILabel *label = [[UILabel alloc] init];
-    label.font = [WPFontManager systemLightFontOfSize:14];
+    label.font = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
     label.textColor = [WPStyleGuide darkBlue];
     label.numberOfLines = 0;
     [self.stackView addArrangedSubview:label];

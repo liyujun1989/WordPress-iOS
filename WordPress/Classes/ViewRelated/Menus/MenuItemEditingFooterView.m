@@ -26,7 +26,7 @@
 - (void)setupCancelButton
 {
     UIButton *button = self.cancelButton;
-    button.titleLabel.font = [WPFontManager systemRegularFontOfSize:18.0];
+    button.titleLabel.font = [WPStyleGuide regularTextFont];
     [button setTitleColor:[WPStyleGuide darkGrey] forState:UIControlStateNormal];
     [button setTitleColor:[WPStyleGuide greyDarken20] forState:UIControlStateHighlighted];
     [button setTitle:NSLocalizedString(@"Cancel", @"Menus: Cancel button title for canceling an edited menu item.") forState:UIControlStateNormal];
@@ -46,7 +46,7 @@
 - (void)setupSaveButton
 {
     UIButton *button = self.saveButton;
-    button.titleLabel.font = [WPFontManager systemSemiBoldFontOfSize:18.0];
+    button.titleLabel.font = [WPStyleGuide regularTextFont];
     [button setTitleColor:[WPStyleGuide wordPressBlue] forState:UIControlStateNormal];
     [button setTitleColor:[WPStyleGuide darkBlue] forState:UIControlStateHighlighted];
     [button setTitleColor:[WPStyleGuide greyLighten20] forState:UIControlStateDisabled];

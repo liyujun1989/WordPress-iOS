@@ -32,7 +32,7 @@ static CGFloat ViewExpansionAnimationDelay = 0.15;
     self.locationsView.delegate = self;
     self.menusView.delegate = self;
 
-    self.textLabel.font = [WPFontManager systemRegularFontOfSize:13];
+    self.textLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
     self.textLabel.backgroundColor = [UIColor clearColor];
     self.textLabel.textColor = [WPStyleGuide greyDarken20];
     self.textLabel.text = NSLocalizedString(@"USES", @"Menus label for describing which menu the location uses in the header.");
