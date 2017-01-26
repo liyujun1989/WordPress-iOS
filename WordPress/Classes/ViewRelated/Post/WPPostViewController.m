@@ -86,6 +86,7 @@ EditImageDetailsViewControllerDelegate
 @property (nonatomic) BOOL isOpenedDirectlyForEditing;
 @property (nonatomic) CGRect keyboardRect;
 @property (nonatomic, strong) UIAlertController *currentAlertController;
+@property (nonatomic, strong) AdaptivePopoverDelegate *adaptivePopoverDelegate;
 
 #pragma mark - Media related properties
 @property (nonatomic, strong) NSProgress *mediaGlobalProgress;
@@ -806,12 +807,32 @@ EditImageDetailsViewControllerDelegate
     }
 }
 
-- (void)showSettings
+- (void)showSettings:(UIBarButtonItem *)button
 {
-    Post *post = (Post *)self.post;
-    PostSettingsViewController *vc = [[[self classForSettingsViewController] alloc] initWithPost:post];
-	vc.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:vc animated:YES];
+    [self.editorView.focusedField blur];
+
+    PostSettingsViewController *postSettingsViewController = [[[self classForSettingsViewController] alloc] initWithPost:(Post *)self.post];
+	postSettingsViewController.hidesBottomBarWhenPushed = YES;
+    postSettingsViewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:[[self quickSaveAlertAction] title]
+                                                                            style:UIBarButtonItemStylePlain target:self action:@selector(quickSaveTapped)];
+
+    UINavigationController *navigationController = [[StatusBarStylePassthroughNavigationController alloc] initWithNavigationBarClass:[PostSettingsNavigationBar class]
+                                                                                                                        toolbarClass:nil];
+    navigationController.viewControllers = @[ postSettingsViewController ];
+    navigationController.modalPresentationStyle = UIModalPresentationPopover;
+    navigationController.popoverPresentationController.permittedArrowDirections = UIPopoverArrowDirectionUp;
+
+    self.adaptivePopoverDelegate = [AdaptivePopoverDelegate new];
+    navigationController.presentationController.delegate = self.adaptivePopoverDelegate;
+
+    navigationController.popoverPresentationController.barButtonItem = button;
+    navigationController.popoverPresentationController.backgroundColor = navigationController.navigationBar.barTintColor ?: [UIColor whiteColor];
+
+    [self presentViewController:navigationController animated:YES completion:nil];
+}
+
+- (void)quickSaveTapped
+{
 }
 
 - (void)showPreview
@@ -1102,7 +1123,7 @@ EditImageDetailsViewControllerDelegate
     }
 
     UIImage *image = [Gridicon iconOfType:GridiconTypeEllipsis];
-    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithImage:image style:UIBarButtonItemStylePlain target:self action:@selector(showMoreSheet)];
+    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithImage:image style:UIBarButtonItemStylePlain target:self action:@selector(showSettings:)];
     _moreBarButtonItem = button;
 
     return _moreBarButtonItem;
@@ -1278,7 +1299,7 @@ EditImageDetailsViewControllerDelegate
     return [UIAlertAction actionWithTitle:NSLocalizedString(@"Options", @"Title of the Post Settings navigation button in the Post Editor. Tapping shows settings and options related to the post being edited.")
                                     style:UIAlertActionStyleDefault
                                   handler:^(UIAlertAction * _Nonnull action) {
-                                      [self showSettings];
+//                                      [self showSettings];
                                   }];
 }
 
@@ -1974,7 +1995,7 @@ EditImageDetailsViewControllerDelegate
 
 - (void)editorDidPressSettings:(WPEditorViewController *)editorController
 {
-    [self showSettings];
+//    [self showSettings];
 }
 
 - (void)editorDidPressMedia:(WPEditorViewController *)editorController

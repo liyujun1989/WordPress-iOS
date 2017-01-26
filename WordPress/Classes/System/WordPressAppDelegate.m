@@ -53,6 +53,7 @@
 #import "WordPress-Swift.h"
 
 // View controllers
+#import "PostSettingsViewController.h"
 #import "RotationAwareNavigationViewController.h"
 #import "StatsViewController.h"
 #import "SupportViewController.h"
@@ -580,6 +581,19 @@ int ddLogLevel = DDLogLevelInfo;
     [[WPLegacyEditorFormatToolbar appearance] setBarTintColor:[UIColor colorWithHexString:@"F9FBFC"]];
     [[WPLegacyEditorFormatToolbar appearance] setTintColor:[WPStyleGuide greyLighten10]];
     [[UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[[WPLegacyEditorFormatToolbar class]]] setTintColor:[WPStyleGuide greyLighten10]];
+
+    // Adaptive Popovers
+    UIBarButtonItem *postSettingsBarButtonItemAppearance = [UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[ [PostSettingsNavigationBar class] ]];
+    [postSettingsBarButtonItemAppearance setTintColor:[WPStyleGuide wordPressBlue]];
+    [postSettingsBarButtonItemAppearance setTitleTextAttributes:@{NSFontAttributeName: [WPFontManager systemRegularFontOfSize:17.0], NSForegroundColorAttributeName: [WPStyleGuide wordPressBlue]} forState:UIControlStateNormal];
+    [postSettingsBarButtonItemAppearance setTitleTextAttributes:@{NSFontAttributeName: [WPFontManager systemRegularFontOfSize:17.0], NSForegroundColorAttributeName: [[WPStyleGuide wordPressBlue] colorWithAlphaComponent:0.25]} forState:UIControlStateDisabled];
+
+    PostSettingsNavigationBar *postSettingsNavigationBarAppearance = [PostSettingsNavigationBar appearance];
+    postSettingsNavigationBarAppearance.barTintColor = [UIColor whiteColor];
+    postSettingsNavigationBarAppearance.tintColor = [WPStyleGuide wordPressBlue];
+    [postSettingsNavigationBarAppearance setBackgroundImage:[UIImage imageWithColor:[UIColor whiteColor]] forBarMetrics:UIBarMetricsDefault];
+    [postSettingsNavigationBarAppearance setTitleTextAttributes:@{NSForegroundColorAttributeName: [WPStyleGuide whisperGrey], NSFontAttributeName: [WPFontManager systemBoldFontOfSize:17.0]} ];
+    [postSettingsNavigationBarAppearance setShadowImage:[UIImage imageWithColor:[WPStyleGuide grey]]];
 }
 
 - (void)create3DTouchShortcutItems
