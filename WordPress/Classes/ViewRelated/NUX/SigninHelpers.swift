@@ -38,7 +38,7 @@ import Hero
         let controller = createControllerForSigninFlow(showsEditor: thenEditor)
         let navController = NUXNavigationController(rootViewController: controller)
         navController.isHeroEnabled = true
-        navController.heroNavigationAnimationType = .none
+        navController.heroNavigationAnimationType = .auto
         presenter.present(navController, animated: animated, completion: nil)
 
         trackOpenedLogin()
