@@ -2,6 +2,7 @@ import UIKit
 import NSURL_IDN
 import WordPressComAnalytics
 import Mixpanel
+import Hero
 
 /// A collection of helper methods for NUX.
 ///
@@ -14,6 +15,12 @@ import Mixpanel
 
     // Convenience factory for the signin flow's first vc
     class func createControllerForSigninFlow(showsEditor thenEditor: Bool) -> UIViewController {
+        if true {
+            let storyboard = UIStoryboard(name: "Signin", bundle: Bundle.main)
+            let controller = storyboard.instantiateViewController(withIdentifier: "PromoViewController")
+//            controller.loginFields = loginFields == nil ? LoginFields() : loginFields!
+            return controller
+        }
         let controller = SigninEmailViewController.controller()
         controller.dismissBlock = {(cancelled) in
             // Show the editor if requested, and we weren't cancelled.
@@ -30,6 +37,8 @@ import Mixpanel
     class func showSigninFromPresenter(_ presenter: UIViewController, animated: Bool, thenEditor: Bool) {
         let controller = createControllerForSigninFlow(showsEditor: thenEditor)
         let navController = NUXNavigationController(rootViewController: controller)
+        navController.isHeroEnabled = true
+        navController.heroNavigationAnimationType = .none
         presenter.present(navController, animated: animated, completion: nil)
 
         trackOpenedLogin()

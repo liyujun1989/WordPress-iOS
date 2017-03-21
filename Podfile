@@ -36,6 +36,8 @@ abstract_target 'WordPress_Base' do
     # Temporary until this fix is merged and released
     # https://github.com/daltoniam/Starscream/pull/294
     pod 'Starscream', :git => 'https://github.com/wordpress-mobile/Starscream', :branch => 'wordpress-ios'
+    pod 'Hero'
+
     # ----------------------------
     # Forked third party libraries
     # ----------------------------

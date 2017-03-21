@@ -66,6 +66,7 @@ PODS:
     - FormatterKit/Resources
   - Gridicons (0.4)
   - Helpshift (5.9.3)
+  - Hero (0.3.3)
   - HockeySDK (4.1.3):
     - HockeySDK/DefaultLib (= 4.1.3)
   - HockeySDK/DefaultLib (4.1.3)
@@ -161,6 +162,7 @@ DEPENDENCIES:
   - FormatterKit (~> 1.8.1)
   - Gridicons (= 0.4)
   - Helpshift (~> 5.9.3)
+  - Hero
   - HockeySDK (~> 4.1.3)
   - Lookback (= 1.4.1)
   - MGSwipeTableCell (~> 1.5.6)
@@ -229,6 +231,7 @@ SPEC CHECKSUMS:
   FormatterKit: 11ad17b983200629246a5a466f6f1bfa2df823cb
   Gridicons: 66be278835b8b98ad009c2902a3d57b8da81702e
   Helpshift: fa42856075d2e77ce4243d667ffa91ab5bb725fe
+  Hero: bee4e762e84185b16a902dd11335c119515bb912
   HockeySDK: 7dd8d7f5a4d71b7a5eebb320c8515cb22e99221b
   Lookback: 37c23f97894612f6eccc215440c8f990fbb5a607
   MGSwipeTableCell: 616700eb0ffd1c611ba909066cb7fd739790a0a7
@@ -255,6 +258,6 @@ SPEC CHECKSUMS:
   WPMediaPicker: d4ce8e9db98b60ab44e7154151dbad135f8e7ff6
   wpxmlrpc: 38623cc415117914d6ab5bf2ab8a57a4076cc469
 
-PODFILE CHECKSUM: e4930a9b8830946f509fd0494b672c86fc0b1663
+PODFILE CHECKSUM: cd8d03147163b21d54a7ce638c8d2a3ac6b1da34
 
 COCOAPODS: 1.1.1

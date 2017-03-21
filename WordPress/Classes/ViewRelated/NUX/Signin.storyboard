@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E163f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E189a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,6 +9,113 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--View Controller-->
+        <scene sceneID="I1v-Y9-QFv">
+            <objects>
+                <viewController storyboardIdentifier="PromoViewController" id="pWr-RS-HIT" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2kq-g2-6nG"/>
+                        <viewControllerLayoutGuide type="bottom" id="L2l-Fm-BKe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2Dm-cf-bGQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CIg-KS-NtN">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="539"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fake-promo" translatesAutoresizingMaskIntoConstraints="NO" id="kav-5P-OPp">
+                                        <rect key="frame" x="74" y="33" width="226" height="401"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="401" id="2HX-CF-LFh"/>
+                                            <constraint firstAttribute="width" constant="226" id="q46-7c-Uhg"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Catch up with your favorite sites and join the conversation anywhere" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cjW-q8-FhB">
+                                        <rect key="frame" x="20" y="464" width="335" height="41"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="jKY-I2-LoQ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="cjW-q8-FhB" firstAttribute="top" secondItem="kav-5P-OPp" secondAttribute="bottom" constant="30" id="2Be-H2-Nai"/>
+                                    <constraint firstItem="cjW-q8-FhB" firstAttribute="width" secondItem="CIg-KS-NtN" secondAttribute="width" constant="-40" id="3nf-i4-CmG"/>
+                                    <constraint firstItem="kav-5P-OPp" firstAttribute="top" secondItem="CIg-KS-NtN" secondAttribute="top" constant="33" id="7fg-at-e9g"/>
+                                    <constraint firstItem="kav-5P-OPp" firstAttribute="centerX" secondItem="CIg-KS-NtN" secondAttribute="centerX" id="CFj-4R-XMk"/>
+                                    <constraint firstItem="cjW-q8-FhB" firstAttribute="centerX" secondItem="CIg-KS-NtN" secondAttribute="centerX" id="eUV-Y5-dva"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="promoHolder"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="fade, source(wplogo), scale"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="fTZ-0U-eVa">
+                                <rect key="frame" x="20" y="559" width="335" height="88"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pqa-Kf-9bQ" customClass="NUXSubmitButton" customModule="WordPress" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="34"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="nextButton"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="Tsi-2p-aEZ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal" title="Log In">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="primeButton"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="position, size, opacity, fade"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="handleSubmitButtonTapped:" destination="fwZ-QE-5et" eventType="touchUpInside" id="KAo-BQ-ijY"/>
+                                            <segue destination="fwZ-QE-5et" kind="show" id="DTe-O5-Z0J"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="enq-4b-Sm3" customClass="NUXSubmitButton" customModule="WordPress" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="54" width="335" height="34"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="nextButton"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="J1a-yG-SIC"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal" title="Start a site on WordPress.com">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="createButton"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="size, position(50)"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="handleSubmitButtonTapped:" destination="fwZ-QE-5et" eventType="touchUpInside" id="PAW-Mb-fAb"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.22987975180149078" green="0.52114713191986084" blue="0.72555196285247803" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="CIg-KS-NtN" secondAttribute="trailing" id="2Yt-D7-LnD"/>
+                            <constraint firstAttribute="trailing" secondItem="fTZ-0U-eVa" secondAttribute="trailing" constant="20" id="L7M-FP-lcU"/>
+                            <constraint firstItem="CIg-KS-NtN" firstAttribute="top" secondItem="2Dm-cf-bGQ" secondAttribute="top" id="dhE-1Z-Vqt"/>
+                            <constraint firstItem="L2l-Fm-BKe" firstAttribute="top" secondItem="fTZ-0U-eVa" secondAttribute="bottom" constant="20" id="elf-Cg-HrU"/>
+                            <constraint firstItem="fTZ-0U-eVa" firstAttribute="top" secondItem="CIg-KS-NtN" secondAttribute="bottom" constant="20" id="fdg-uX-hYF"/>
+                            <constraint firstItem="CIg-KS-NtN" firstAttribute="leading" secondItem="2Dm-cf-bGQ" secondAttribute="leading" id="iKE-Rl-C8b"/>
+                            <constraint firstItem="fTZ-0U-eVa" firstAttribute="leading" secondItem="2Dm-cf-bGQ" secondAttribute="leading" constant="20" id="zdU-zy-TJ5"/>
+                        </constraints>
+                    </view>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TDN-cP-hDl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="280.80000000000001" y="281.10944527736132"/>
+        </scene>
         <!--Signin Email View Controller-->
         <scene sceneID="w6Y-pB-a3f">
             <objects>
@@ -33,6 +140,9 @@
                                                     <constraint firstAttribute="height" constant="64" id="255-u8-AfS"/>
                                                     <constraint firstAttribute="width" constant="64" id="NRF-lp-C4k"/>
                                                 </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="wplogo"/>
+                                                </userDefinedRuntimeAttributes>
                                             </imageView>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email or username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XXO-aV-keK" customClass="WPWalkthroughTextField">
                                                 <rect key="frame" x="0.0" y="72" width="375" height="44"/>
@@ -46,6 +156,7 @@
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="image" keyPath="leftViewImage" value="icon-username-field"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="usernameField"/>
                                                 </userDefinedRuntimeAttributes>
                                                 <variation key="default">
                                                     <mask key="constraints">
@@ -74,6 +185,10 @@
                                                 <state key="normal" title="NEXT">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="primeButton"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="position, size, opacity, fade"/>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="handleSubmitButtonTapped:" destination="fwZ-QE-5et" eventType="touchUpInside" id="bLs-uJ-s0q"/>
                                                 </connections>
@@ -103,7 +218,7 @@
                                         </variation>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.22987975180149078" green="0.52114713191986084" blue="0.72555196285247803" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="18V-ZM-xlT" secondAttribute="trailing" id="9tR-rM-JfT"/>
                                     <constraint firstItem="18V-ZM-xlT" firstAttribute="leading" secondItem="JBb-dd-foh" secondAttribute="leading" id="IBM-8C-blc"/>
@@ -111,6 +226,10 @@
                                     <constraint firstItem="18V-ZM-xlT" firstAttribute="centerX" secondItem="JBb-dd-foh" secondAttribute="centerX" id="sIT-ge-7gg"/>
                                     <constraint firstItem="18V-ZM-xlT" firstAttribute="top" relation="greaterThanOrEqual" secondItem="JBb-dd-foh" secondAttribute="top" id="u02-xZ-qlg"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="2ndbg"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="fad"/>
+                                </userDefinedRuntimeAttributes>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="sIT-ge-7gg"/>
@@ -171,6 +290,9 @@
                             <constraint firstItem="wGR-td-aHF" firstAttribute="centerX" secondItem="e5n-Bf-JaL" secondAttribute="centerX" id="t88-IO-wHw"/>
                         </constraints>
                     </view>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="bottomContentConstraint" destination="69z-Ci-34m" id="P7I-rP-Yd4"/>
                         <outlet property="createSiteButton" destination="PCj-nt-T9Y" id="YmC-Pm-ReZ"/>
@@ -540,7 +662,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.79559990284974091" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstItem="Mjx-cz-sDG" firstAttribute="top" relation="greaterThanOrEqual" secondItem="5AW-qg-L9w" secondAttribute="top" id="3Js-t7-yPG"/>
                                     <constraint firstItem="Mjx-cz-sDG" firstAttribute="centerX" secondItem="5AW-qg-L9w" secondAttribute="centerX" id="98r-Gx-edy"/>
@@ -551,6 +673,10 @@
                                     <constraint firstItem="Gzk-TE-YfP" firstAttribute="centerX" secondItem="5AW-qg-L9w" secondAttribute="centerX" id="vGs-D3-oey"/>
                                     <constraint firstItem="Mjx-cz-sDG" firstAttribute="leading" secondItem="5AW-qg-L9w" secondAttribute="leading" id="vrg-3c-mtK"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="2ndbg"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="fade"/>
+                                </userDefinedRuntimeAttributes>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="98r-Gx-edy"/>
@@ -565,7 +691,7 @@
                                 </variation>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.52941176469999995" blue="0.74509803919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="5AW-qg-L9w" firstAttribute="leading" secondItem="HTO-Y8-god" secondAttribute="leading" id="0Jb-DD-JbH"/>
                             <constraint firstItem="Ktl-It-Kmo" firstAttribute="top" secondItem="5AW-qg-L9w" secondAttribute="bottom" priority="900" id="Cp7-kV-GwD"/>
@@ -573,6 +699,9 @@
                             <constraint firstItem="5AW-qg-L9w" firstAttribute="top" secondItem="Yjk-Cc-Bxb" secondAttribute="bottom" constant="-20" id="goU-S0-Xfs"/>
                         </constraints>
                     </view>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="bottomContentConstraint" destination="Cp7-kV-GwD" id="mNb-vQ-DxH"/>
                         <outlet property="forgotPasswordButton" destination="Gzk-TE-YfP" id="yzb-jL-iRE"/>
@@ -612,6 +741,10 @@
                                                     <constraint firstAttribute="width" constant="152" id="3Zk-24-qTP"/>
                                                     <constraint firstAttribute="height" constant="106" id="LvE-AN-pgi"/>
                                                 </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="wplogo"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="size"/>
+                                                </userDefinedRuntimeAttributes>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Bli-Rb-X9m">
                                                 <rect key="frame" x="0.0" y="114" width="375" height="88"/>
@@ -625,6 +758,7 @@
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="image" keyPath="leftViewImage" value="icon-username-field"/>
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="showSecureTextEntryToggle" value="NO"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="usernameField"/>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <action selector="handleTextFieldDidChange:" destination="lmD-c6-SLs" eventType="editingChanged" id="v8D-Ni-JQA"/>
@@ -641,6 +775,8 @@
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="showTopLineSeparator" value="YES"/>
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="showSecureTextEntryToggle" value="YES"/>
                                                             <userDefinedRuntimeAttribute type="image" keyPath="leftViewImage" value="icon-password-field"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="source(usernameField)"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="passwordField"/>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <action selector="handleTextFieldDidChange:" destination="lmD-c6-SLs" eventType="editingChanged" id="TIx-xK-PLT"/>
@@ -662,6 +798,10 @@
                                                 <state key="normal" title="SIGN IN">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="primeButton"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="position, size, opacity, fade"/>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="handleSubmitButtonTapped:" destination="lmD-c6-SLs" eventType="touchUpInside" id="hX6-w6-i2P"/>
                                                 </connections>
@@ -755,6 +895,9 @@
                             <constraint firstItem="kOH-fr-1L0" firstAttribute="top" secondItem="7OQ-0t-1zq" secondAttribute="bottom" priority="900" id="cuz-xK-BSJ"/>
                         </constraints>
                     </view>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="bottomContentConstraint" destination="cuz-xK-BSJ" id="fwY-mo-qJg"/>
                         <outlet property="forgotPasswordButton" destination="0P1-6g-BI3" id="UkJ-jm-n4v"/>
@@ -1234,6 +1377,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="fake-promo" width="392" height="696"/>
         <image name="icon-alert" width="62" height="52"/>
         <image name="icon-email-field" width="18" height="22"/>
         <image name="icon-password-field" width="18" height="22"/>
