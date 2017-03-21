@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E189a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -859,7 +859,7 @@
         <!--Enter Site Addess-->
         <scene sceneID="BLh-hu-ULs">
             <objects>
-                <viewController id="hp1-uh-OnP" userLabel="Enter Site Addess" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SigninURLViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hp1-uh-OnP" userLabel="Enter Site Addess" customClass="SigninURLViewController" customModule="WordPress" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nCd-sk-aT8"/>
                         <viewControllerLayoutGuide type="bottom" id="oi1-YL-qyG"/>
@@ -868,134 +868,149 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pdy-fR-Xj8">
-                                <rect key="frame" x="0.0" y="220.5" width="375" height="226"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f3S-vY-Jmo">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-wp" translatesAutoresizingMaskIntoConstraints="NO" id="LjH-iG-JH1">
-                                        <rect key="frame" x="156" y="-29" width="64" height="52"/>
+                                    <view contentMode="scaleToFill" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="J02-mN-CM4">
+                                        <rect key="frame" x="0.0" y="199.5" width="375" height="268"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-wp" translatesAutoresizingMaskIntoConstraints="NO" id="L1T-Kt-C44">
+                                                <rect key="frame" x="155.5" y="0.0" width="64" height="64"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="64" id="3FK-BX-OXN"/>
+                                                    <constraint firstAttribute="width" constant="64" id="GbQ-67-kFZ"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Enter the address of your WordPresss Site" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ftQ-JP-xOX">
+                                                <rect key="frame" x="8" y="84" width="359" height="48"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Site Address (URL)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a7Z-cu-qZA" customClass="WPWalkthroughTextField">
+                                                <rect key="frame" x="0.0" y="147" width="375" height="44"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="selfHostedURL"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="Gkb-7q-ESE"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="showTopLineSeparator" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="image" keyPath="leftViewImage" value="icon-url-field"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="handleTextFieldDidChange:" destination="hp1-uh-OnP" eventType="valueChanged" id="i7y-Rn-ElB"/>
+                                                    <action selector="handleTextFieldDidChange:" destination="hp1-uh-OnP" eventType="editingChanged" id="iZZ-D1-lBq"/>
+                                                    <outlet property="delegate" destination="hp1-uh-OnP" id="E1c-dW-RYd"/>
+                                                </connections>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OXU-Qx-gN7" customClass="NUXSubmitButton" customModule="WordPress" customModuleProvider="target">
+                                                <rect key="frame" x="155.5" y="202" width="63" height="34"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="submitButton"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="34" id="g1p-wc-FXH"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <state key="normal" title="ADD SITE">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="handleSubmitButtonTapped:" destination="hp1-uh-OnP" eventType="touchUpInside" id="zlc-Lv-EJ3"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l8Z-fh-zI6">
+                                                <rect key="frame" x="171" y="252" width="33" height="16"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="64" id="BFY-o2-S30"/>
-                                            <constraint firstAttribute="height" constant="52" id="u5R-ar-f3N"/>
+                                            <constraint firstItem="a7Z-cu-qZA" firstAttribute="top" secondItem="ftQ-JP-xOX" secondAttribute="bottom" constant="15" id="1M8-VJ-F2n"/>
+                                            <constraint firstItem="l8Z-fh-zI6" firstAttribute="centerX" secondItem="J02-mN-CM4" secondAttribute="centerX" id="6eS-QH-1gi"/>
+                                            <constraint firstAttribute="bottom" secondItem="l8Z-fh-zI6" secondAttribute="bottom" id="7E9-OV-GW9"/>
+                                            <constraint firstAttribute="width" constant="320" id="9aD-5B-NA9"/>
+                                            <constraint firstItem="l8Z-fh-zI6" firstAttribute="top" secondItem="OXU-Qx-gN7" secondAttribute="bottom" constant="16" id="JrK-x5-kkn"/>
+                                            <constraint firstItem="ftQ-JP-xOX" firstAttribute="top" secondItem="L1T-Kt-C44" secondAttribute="bottom" constant="20" id="M78-xV-Nuc"/>
+                                            <constraint firstItem="ftQ-JP-xOX" firstAttribute="leading" secondItem="J02-mN-CM4" secondAttribute="leading" constant="8" id="NGb-IZ-eXf"/>
+                                            <constraint firstItem="OXU-Qx-gN7" firstAttribute="top" secondItem="a7Z-cu-qZA" secondAttribute="bottom" constant="11" id="Oeq-3m-coq"/>
+                                            <constraint firstItem="OXU-Qx-gN7" firstAttribute="centerX" secondItem="J02-mN-CM4" secondAttribute="centerX" id="UGe-ru-cZC"/>
+                                            <constraint firstItem="L1T-Kt-C44" firstAttribute="top" secondItem="J02-mN-CM4" secondAttribute="top" id="aKw-Cc-Mlq"/>
+                                            <constraint firstItem="a7Z-cu-qZA" firstAttribute="leading" secondItem="J02-mN-CM4" secondAttribute="leading" id="lh3-qL-04x"/>
+                                            <constraint firstItem="L1T-Kt-C44" firstAttribute="centerX" secondItem="J02-mN-CM4" secondAttribute="centerX" id="m9f-qv-jGL"/>
+                                            <constraint firstAttribute="trailing" secondItem="ftQ-JP-xOX" secondAttribute="trailing" constant="8" id="r3X-RV-Rfd"/>
+                                            <constraint firstAttribute="trailing" secondItem="a7Z-cu-qZA" secondAttribute="trailing" id="tBl-Rh-m4i"/>
                                         </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="wplogo"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter the address of your WordPress site" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hye-5A-F2l">
-                                        <rect key="frame" x="30" y="43" width="315" height="74"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="WDG-zE-JnP"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Site address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JaL-db-M8b" customClass="WPWalkthroughTextField">
-                                        <rect key="frame" x="0.0" y="132" width="375" height="44"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="usernameField"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="320" id="cpH-jw-MmU"/>
-                                            <constraint firstAttribute="height" constant="44" id="jdp-cS-3Rk"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="image" keyPath="leftViewImage" value="icon-username-field"/>
-                                        </userDefinedRuntimeAttributes>
                                         <variation key="default">
                                             <mask key="constraints">
-                                                <exclude reference="cpH-jw-MmU"/>
+                                                <exclude reference="9aD-5B-NA9"/>
                                             </mask>
                                         </variation>
                                         <variation key="heightClass=regular-widthClass=regular">
                                             <mask key="constraints">
-                                                <include reference="cpH-jw-MmU"/>
+                                                <include reference="9aD-5B-NA9"/>
                                             </mask>
                                         </variation>
-                                        <connections>
-                                            <action selector="handleSubmitForm" destination="fwZ-QE-5et" eventType="primaryActionTriggered" id="5ng-bm-bCE"/>
-                                            <action selector="handleTextFieldDidChange:" destination="fwZ-QE-5et" eventType="editingChanged" id="ecG-Ay-dCF"/>
-                                            <action selector="handleTextFieldEditingDidBegin:" destination="fwZ-QE-5et" eventType="editingDidBegin" id="XVK-Qi-LOw"/>
-                                            <outlet property="delegate" destination="fwZ-QE-5et" id="yN5-fL-dJw"/>
-                                        </connections>
-                                    </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s5g-08-yIw" customClass="NUXSubmitButton" customModule="WordPress" customModuleProvider="target">
-                                        <rect key="frame" x="169.5" y="192" width="37" height="34"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="nextButton"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="34" id="0bL-z3-qb6"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <state key="normal" title="NEXT">
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K90-5V-bWp">
+                                        <rect key="frame" x="124.5" y="623" width="125" height="28"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <state key="normal" title="Lost your password?">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="primeButton"/>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="position, size, opacity, fade"/>
-                                        </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="handleSubmitButtonTapped:" destination="fwZ-QE-5et" eventType="touchUpInside" id="DhN-9X-rIa"/>
+                                            <action selector="handleForgotPasswordButtonTapped:" destination="SZS-o3-1P7" eventType="touchUpInside" id="vra-bq-nJh"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="320" id="1ix-Xk-xll"/>
-                                    <constraint firstItem="hye-5A-F2l" firstAttribute="leading" secondItem="Pdy-fR-Xj8" secondAttribute="leading" constant="30" id="2Kw-9N-mNE"/>
-                                    <constraint firstAttribute="bottom" secondItem="s5g-08-yIw" secondAttribute="bottom" id="3xQ-Jh-VvG"/>
-                                    <constraint firstItem="JaL-db-M8b" firstAttribute="leading" secondItem="Pdy-fR-Xj8" secondAttribute="leading" id="49n-Gg-Bo0"/>
-                                    <constraint firstItem="LjH-iG-JH1" firstAttribute="centerX" secondItem="Pdy-fR-Xj8" secondAttribute="centerX" id="9Dn-qp-1Il"/>
-                                    <constraint firstItem="JaL-db-M8b" firstAttribute="top" secondItem="hye-5A-F2l" secondAttribute="bottom" constant="15" id="Fyh-nt-Uss"/>
-                                    <constraint firstItem="s5g-08-yIw" firstAttribute="top" secondItem="JaL-db-M8b" secondAttribute="bottom" constant="16" id="JHD-S9-k1I"/>
-                                    <constraint firstAttribute="trailing" secondItem="hye-5A-F2l" secondAttribute="trailing" constant="30" id="TiE-CC-aWT"/>
-                                    <constraint firstItem="LjH-iG-JH1" firstAttribute="top" secondItem="Pdy-fR-Xj8" secondAttribute="top" constant="-29" id="ayf-eS-VAs"/>
-                                    <constraint firstAttribute="height" constant="226" id="b4N-De-uSl"/>
-                                    <constraint firstItem="s5g-08-yIw" firstAttribute="centerX" secondItem="Pdy-fR-Xj8" secondAttribute="centerX" id="je1-DG-VB0"/>
-                                    <constraint firstItem="hye-5A-F2l" firstAttribute="top" secondItem="LjH-iG-JH1" secondAttribute="bottom" constant="20" id="nc0-zI-3Kg"/>
-                                    <constraint firstItem="hye-5A-F2l" firstAttribute="centerX" secondItem="Pdy-fR-Xj8" secondAttribute="centerX" id="t57-Um-tbI"/>
-                                    <constraint firstAttribute="trailing" secondItem="JaL-db-M8b" secondAttribute="trailing" id="tZA-pv-ZlK"/>
+                                    <constraint firstAttribute="bottom" secondItem="K90-5V-bWp" secondAttribute="bottom" priority="900" constant="16" id="0pW-LU-2nf"/>
+                                    <constraint firstAttribute="trailing" secondItem="J02-mN-CM4" secondAttribute="trailing" id="1rv-QN-gdh"/>
+                                    <constraint firstItem="J02-mN-CM4" firstAttribute="centerX" secondItem="f3S-vY-Jmo" secondAttribute="centerX" id="4fg-Sh-GYQ"/>
+                                    <constraint firstItem="K90-5V-bWp" firstAttribute="centerX" secondItem="f3S-vY-Jmo" secondAttribute="centerX" id="9mv-Cr-J32"/>
+                                    <constraint firstItem="J02-mN-CM4" firstAttribute="leading" secondItem="f3S-vY-Jmo" secondAttribute="leading" id="GvS-8X-nm7"/>
+                                    <constraint firstItem="J02-mN-CM4" firstAttribute="centerY" secondItem="f3S-vY-Jmo" secondAttribute="centerY" id="NVy-Um-Syi"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="2ndbg"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="fade"/>
+                                </userDefinedRuntimeAttributes>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="1ix-Xk-xll"/>
+                                        <exclude reference="4fg-Sh-GYQ"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=regular">
                                     <mask key="constraints">
-                                        <include reference="1ix-Xk-xll"/>
+                                        <exclude reference="1rv-QN-gdh"/>
+                                        <include reference="4fg-Sh-GYQ"/>
+                                        <exclude reference="GvS-8X-nm7"/>
                                     </mask>
                                 </variation>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ww8-Ua-TdW">
-                                <rect key="frame" x="0.0" y="623" width="375" height="28"/>
-                                <accessibility key="accessibilityConfiguration" identifier="addSelfHostedButton"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="28" id="jqM-5h-gg2"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <state key="normal" title="Don't know your site's address?">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="k3n-0p-7ht" kind="show" id="JD7-Uy-K3C"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.2298797518" green="0.52114713189999995" blue="0.72555196290000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="ww8-Ua-TdW" firstAttribute="centerX" secondItem="79B-Xy-b7C" secondAttribute="centerX" id="092-zs-Aj4"/>
-                            <constraint firstItem="ww8-Ua-TdW" firstAttribute="width" secondItem="79B-Xy-b7C" secondAttribute="width" id="1vk-x5-hLy"/>
-                            <constraint firstItem="Pdy-fR-Xj8" firstAttribute="width" secondItem="79B-Xy-b7C" secondAttribute="width" id="4GW-lX-tVB"/>
-                            <constraint firstItem="Pdy-fR-Xj8" firstAttribute="centerY" secondItem="79B-Xy-b7C" secondAttribute="centerY" id="Cch-nv-bsj"/>
-                            <constraint firstItem="oi1-YL-qyG" firstAttribute="top" secondItem="ww8-Ua-TdW" secondAttribute="bottom" constant="16" id="LZR-NR-877"/>
-                            <constraint firstItem="Pdy-fR-Xj8" firstAttribute="centerX" secondItem="79B-Xy-b7C" secondAttribute="centerX" id="WCX-zr-PZT"/>
+                            <constraint firstItem="f3S-vY-Jmo" firstAttribute="top" secondItem="nCd-sk-aT8" secondAttribute="bottom" constant="-20" id="Cpc-aZ-OJg"/>
+                            <constraint firstItem="f3S-vY-Jmo" firstAttribute="leading" secondItem="79B-Xy-b7C" secondAttribute="leading" id="PML-rI-NGy"/>
+                            <constraint firstAttribute="trailing" secondItem="f3S-vY-Jmo" secondAttribute="trailing" id="jLI-Df-jVR"/>
+                            <constraint firstItem="oi1-YL-qyG" firstAttribute="top" secondItem="f3S-vY-Jmo" secondAttribute="bottom" id="oEF-4o-2Zq"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="bottomContentConstraint" destination="0pW-LU-2nf" id="bvd-48-XqH"/>
+                        <outlet property="siteURLField" destination="a7Z-cu-qZA" id="o8m-Yp-GSy"/>
+                        <outlet property="statusLabel" destination="l8Z-fh-zI6" id="E3g-bj-sDD"/>
+                        <outlet property="submitButton" destination="OXU-Qx-gN7" id="2fK-sU-qd3"/>
+                        <outlet property="verticalCenterConstraint" destination="NVy-Um-Syi" id="30w-zn-EvZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UuW-0h-YMh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="262" y="1431"/>
+            <point key="canvasLocation" x="261.60000000000002" y="1430.7346326836582"/>
         </scene>
         <!--Don't know address-->
         <scene sceneID="JFl-BJ-hPD">
