@@ -136,9 +136,9 @@
                                         <rect key="frame" x="0.0" y="175.5" width="375" height="166"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-wp" translatesAutoresizingMaskIntoConstraints="NO" id="Fj6-gt-Ex5">
-                                                <rect key="frame" x="155.5" y="0.0" width="64" height="64"/>
+                                                <rect key="frame" x="156" y="0.0" width="64" height="52"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="64" id="255-u8-AfS"/>
+                                                    <constraint firstAttribute="height" constant="52" id="255-u8-AfS"/>
                                                     <constraint firstAttribute="width" constant="64" id="NRF-lp-C4k"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
@@ -198,7 +198,7 @@
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="OZC-xf-OAn" firstAttribute="top" secondItem="XXO-aV-keK" secondAttribute="bottom" constant="16" id="5Uo-87-MNu"/>
-                                            <constraint firstItem="XXO-aV-keK" firstAttribute="top" secondItem="Fj6-gt-Ex5" secondAttribute="bottom" constant="8" id="BzB-Xw-3G3"/>
+                                            <constraint firstItem="XXO-aV-keK" firstAttribute="top" secondItem="Fj6-gt-Ex5" secondAttribute="bottom" constant="20" id="BzB-Xw-3G3"/>
                                             <constraint firstItem="OZC-xf-OAn" firstAttribute="centerX" secondItem="18V-ZM-xlT" secondAttribute="centerX" id="H8u-DM-Yh5"/>
                                             <constraint firstItem="Fj6-gt-Ex5" firstAttribute="centerX" secondItem="18V-ZM-xlT" secondAttribute="centerX" id="S2r-sa-7yw"/>
                                             <constraint firstAttribute="bottom" secondItem="OZC-xf-OAn" secondAttribute="bottom" id="bhj-sR-FxP"/>
@@ -245,37 +245,17 @@
                                 </variation>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="wGR-td-aHF">
-                                <rect key="frame" x="82.5" y="527" width="210" height="124"/>
+                                <rect key="frame" x="66.5" y="623" width="242" height="28"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Hn-ZK-h9k">
-                                        <rect key="frame" x="0.0" y="0.0" width="210" height="28"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="242" height="28"/>
                                         <accessibility key="accessibilityConfiguration" identifier="addSelfHostedButton"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <state key="normal" title="Add a self-hosted WordPress site">
+                                        <state key="normal" title="Enter a username and password instead">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="handleSelfHostedButtonTapped:" destination="fwZ-QE-5et" eventType="touchUpInside" id="4IZ-FX-3q3"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PCj-nt-T9Y">
-                                        <rect key="frame" x="0.0" y="48" width="210" height="28"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <state key="normal" title="Create a site">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="handleCreateSiteButtonTapped:" destination="fwZ-QE-5et" eventType="touchUpInside" id="MD0-Ps-Pw9"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DvS-7c-C5u">
-                                        <rect key="frame" x="0.0" y="96" width="210" height="28"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <state key="normal" title="Sign in with Safari saved password">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="handleSafariPasswordButtonTapped:" destination="fwZ-QE-5et" eventType="touchUpInside" id="jC5-Z4-XF1"/>
+                                            <segue destination="hp1-uh-OnP" kind="show" id="2aw-tL-W5T"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -296,9 +276,7 @@
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="bottomContentConstraint" destination="69z-Ci-34m" id="P7I-rP-Yd4"/>
-                        <outlet property="createSiteButton" destination="PCj-nt-T9Y" id="YmC-Pm-ReZ"/>
                         <outlet property="emailTextField" destination="XXO-aV-keK" id="GZQ-cn-hKd"/>
-                        <outlet property="safariPasswordButton" destination="DvS-7c-C5u" id="QWl-vu-AuY"/>
                         <outlet property="selfHostedSigninButton" destination="5Hn-ZK-h9k" id="hZn-AT-eQt"/>
                         <outlet property="submitButton" destination="OZC-xf-OAn" id="k1c-SJ-qiK"/>
                         <outlet property="verticalCenterConstraint" destination="iah-J8-nUj" id="yM3-vH-3tw"/>
@@ -306,7 +284,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wWl-qb-1Yp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="263" y="261"/>
+            <point key="canvasLocation" x="261.60000000000002" y="260.41979010494754"/>
         </scene>
         <!--Signup View Controller-->
         <scene sceneID="w7c-Xj-AH8">
