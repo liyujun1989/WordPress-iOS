@@ -14,9 +14,9 @@ import WordPressShared
 
     @IBOutlet var emailTextField: WPWalkthroughTextField!
     @IBOutlet var submitButton: NUXSubmitButton!
-    @IBOutlet var createSiteButton: UIButton!
+//    @IBOutlet var createSiteButton: UIButton!
     @IBOutlet var selfHostedSigninButton: UIButton!
-    @IBOutlet var safariPasswordButton: UIButton!
+//    @IBOutlet var safariPasswordButton: UIButton!
     @IBOutlet var bottomContentConstraint: NSLayoutConstraint!
     @IBOutlet var verticalCenterConstraint: NSLayoutConstraint!
     var onePasswordButton: UIButton!
@@ -107,25 +107,25 @@ import WordPressShared
     /// Assigns localized strings to various UIControl defined in the storyboard.
     ///
     func localizeControls() {
-        emailTextField.placeholder = NSLocalizedString("Email or username", comment: "Placeholder for a textfield. The user may enter their email address or their username.")
-        emailTextField.accessibilityIdentifier = "Email or username"
-
-        let submitButtonTitle = NSLocalizedString("Next", comment: "Title of a button. The text should be uppercase.").localizedUppercase
-        submitButton.setTitle(submitButtonTitle, for: UIControlState())
-        submitButton.setTitle(submitButtonTitle, for: .highlighted)
-        submitButton.accessibilityIdentifier = "Next Button"
-
-        let safariButtonTitle = NSLocalizedString("Log in with Safari saved password", comment: "`Safari saved password` is the name of the iOS feature for saving a password for the Safari browser to use later.")
-        safariPasswordButton.setTitle(safariButtonTitle, for: UIControlState())
-        safariPasswordButton.setTitle(safariButtonTitle, for: .highlighted)
-
-        let createSiteTitle = NSLocalizedString("Create a site", comment: "A button title")
-        createSiteButton.setTitle(createSiteTitle, for: UIControlState())
-        createSiteButton.setTitle(createSiteTitle, for: .highlighted)
-
-        let selfHostedTitle = NSLocalizedString("Add a self-hosted WordPress site", comment: "A button title.")
-        selfHostedSigninButton.setTitle(selfHostedTitle, for: UIControlState())
-        selfHostedSigninButton.setTitle(selfHostedTitle, for: .highlighted)
+//        emailTextField.placeholder = NSLocalizedString("Email or username", comment: "Placeholder for a textfield. The user may enter their email address or their username.")
+//        emailTextField.accessibilityIdentifier = "Email or username"
+//
+//        let submitButtonTitle = NSLocalizedString("Next", comment: "Title of a button. The text should be uppercase.").localizedUppercase
+//        submitButton.setTitle(submitButtonTitle, for: UIControlState())
+//        submitButton.setTitle(submitButtonTitle, for: .highlighted)
+//        submitButton.accessibilityIdentifier = "Next Button"
+//
+//        let safariButtonTitle = NSLocalizedString("Log in with Safari saved password", comment: "`Safari saved password` is the name of the iOS feature for saving a password for the Safari browser to use later.")
+//        safariPasswordButton.setTitle(safariButtonTitle, for: UIControlState())
+//        safariPasswordButton.setTitle(safariButtonTitle, for: .highlighted)
+//
+//        let createSiteTitle = NSLocalizedString("Create a site", comment: "A button title")
+//        createSiteButton.setTitle(createSiteTitle, for: UIControlState())
+//        createSiteButton.setTitle(createSiteTitle, for: .highlighted)
+//
+//        let selfHostedTitle = NSLocalizedString("Add a self-hosted WordPress site", comment: "A button title.")
+//        selfHostedSigninButton.setTitle(selfHostedTitle, for: UIControlState())
+//        selfHostedSigninButton.setTitle(selfHostedTitle, for: .highlighted)
     }
 
 
@@ -142,22 +142,22 @@ import WordPressShared
     /// The button should only be visible if Safari stored credentials are available.
     ///
     func configureSafariPasswordButton(_ animated: Bool) {
-        if safariPasswordButton.isHidden != didFindSafariSharedCredentials {
-            return
-        }
-
-        if !animated {
-            safariPasswordButton.isHidden = !didFindSafariSharedCredentials
-            return
-        }
-
-        UIView.animate(withDuration: 0.2,
-                                   delay: 0.0,
-                                   options: .beginFromCurrentState,
-                                   animations: {
-                                        self.safariPasswordButton.isHidden = !self.didFindSafariSharedCredentials
-                                    },
-                                   completion: nil)
+//        if safariPasswordButton.isHidden != didFindSafariSharedCredentials {
+//            return
+//        }
+//
+//        if !animated {
+//            safariPasswordButton.isHidden = !didFindSafariSharedCredentials
+//            return
+//        }
+//
+//        UIView.animate(withDuration: 0.2,
+//                                   delay: 0.0,
+//                                   options: .beginFromCurrentState,
+//                                   animations: {
+//                                        self.safariPasswordButton.isHidden = !self.didFindSafariSharedCredentials
+//                                    },
+//                                   completion: nil)
     }
 
 
