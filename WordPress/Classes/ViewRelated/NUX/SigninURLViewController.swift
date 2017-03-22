@@ -4,12 +4,11 @@ import WordPressShared
 /// Provides a form and functionality to sign-in and add an existing self-hosted
 /// site to the app.
 ///
-@objc class SigninURLViewController: NUXAbstractViewController, SigninKeyboardResponder, SigninWPComSyncHandler {
-    @IBOutlet weak var bottomContentConstraint: NSLayoutConstraint!
-    @IBOutlet weak var verticalCenterConstraint: NSLayoutConstraint!
+@objc class SigninURLViewController: NUXAbstractViewController, SigninWPComSyncHandler {
+//    @IBOutlet weak var bottomContentConstraint: NSLayoutConstraint!
+//    @IBOutlet weak var verticalCenterConstraint: NSLayoutConstraint!
     @IBOutlet weak var siteURLField: WPWalkthroughTextField!
     @IBOutlet weak var submitButton: NUXSubmitButton!
-    @IBOutlet weak var statusLabel: UILabel!
 
 
     lazy var loginFacade: LoginFacade = {
@@ -63,20 +62,6 @@ import WordPressShared
     }
 
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-
-        registerForKeyboardEvents(keyboardWillShowAction: #selector(SigninEmailViewController.handleKeyboardWillShow(_:)),
-                                  keyboardWillHideAction: #selector(SigninEmailViewController.handleKeyboardWillHide(_:)))
-
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        unregisterForKeyboardEvents()
-    }
-
-
     // MARK: Setup and Configuration
 
 
@@ -95,16 +80,6 @@ import WordPressShared
     ///
     func configureTextFields() {
         siteURLField.text = loginFields.siteUrl
-    }
-
-
-    /// Displays the specified text in the status label.
-    ///
-    /// - Parameters:
-    ///     - message: The text to display in the label.
-    ///
-    func configureStatusLabel(_ message: String) {
-        statusLabel.text = message
     }
 
 
@@ -137,7 +112,6 @@ import WordPressShared
     ///
     func configureViewForEditingIfNeeded() {
         // Check the helper to determine whether an editiing state should be assumed.
-        adjustViewForKeyboard(SigninEditingState.signinEditingStateActive)
         if SigninEditingState.signinEditingStateActive {
             siteURLField.becomeFirstResponder()
         }
@@ -222,6 +196,11 @@ import WordPressShared
 
     }
 
+    func configureStatusLabel(_ message: String) {
+
+    }
+
+    
     // MARK: - Actions
 
 
@@ -234,19 +213,6 @@ import WordPressShared
 
     @IBAction func handleSubmitButtonTapped(_ sender: UIButton) {
         validateForm()
-    }
-
-
-    // MARK: - Keyboard Notifications
-
-
-    func handleKeyboardWillShow(_ notification: Foundation.Notification) {
-        keyboardWillShow(notification)
-    }
-
-
-    func handleKeyboardWillHide(_ notification: Foundation.Notification) {
-        keyboardWillHide(notification)
     }
 }
 
