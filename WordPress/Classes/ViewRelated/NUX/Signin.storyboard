@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E189a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -723,40 +723,57 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b8W-Ah-zoi">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xko-S9-ChL">
-                                        <rect key="frame" x="0.0" y="137" width="375" height="204.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="sgk-Ea-2p9">
+                                        <rect key="frame" x="0.0" y="114.5" width="375" height="238"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-wpcom-type" translatesAutoresizingMaskIntoConstraints="NO" id="YUi-5Z-4M0">
-                                                <rect key="frame" x="112" y="26.5" width="152" height="28"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="28" id="2A7-FG-WtX"/>
-                                                    <constraint firstAttribute="width" constant="152" id="K8r-Ro-pcT"/>
-                                                </constraints>
-                                            </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-wp" translatesAutoresizingMaskIntoConstraints="NO" id="shJ-M4-FKz">
-                                                <rect key="frame" x="156" y="-29" width="64" height="52"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="64" id="YZ6-Uh-bVt"/>
-                                                    <constraint firstAttribute="height" constant="52" id="gs2-Z9-tvM"/>
-                                                </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="wplogo"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SEI-vd-HCz">
-                                                <rect key="frame" x="30" y="74.5" width="315" height="21"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="TVJ-Ve-hAH"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="nnz-tp-UEj">
+                                                <rect key="frame" x="20" y="0.0" width="335" height="80"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-wp" translatesAutoresizingMaskIntoConstraints="NO" id="shJ-M4-FKz">
+                                                        <rect key="frame" x="135.5" y="0.0" width="64" height="52"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="64" id="YZ6-Uh-bVt"/>
+                                                            <constraint firstAttribute="height" constant="52" id="gs2-Z9-tvM"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="wplogo"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </imageView>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-wpcom-type" translatesAutoresizingMaskIntoConstraints="NO" id="YUi-5Z-4M0">
+                                                        <rect key="frame" x="91.5" y="52" width="152" height="28"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="28" id="2A7-FG-WtX"/>
+                                                            <constraint firstAttribute="width" constant="152" id="K8r-Ro-pcT"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="9gh-hY-hQk">
+                                                <rect key="frame" x="20" y="95" width="335" height="35"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qJL-Jy-0Xm">
+                                                        <rect key="frame" x="0.0" y="0.0" width="34" height="14.5"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SEI-vd-HCz">
+                                                        <rect key="frame" x="0.0" y="14.5" width="45.5" height="20.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="TVJ-Ve-hAH"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hih-uH-Cgh" customClass="WPWalkthroughTextField">
-                                                <rect key="frame" x="0.0" y="110.5" width="375" height="44"/>
+                                                <rect key="frame" x="0.0" y="145" width="375" height="44"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <accessibility key="accessibilityConfiguration" identifier="usernameField"/>
                                                 <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="3Q9-BX-p4g"/>
                                                     <constraint firstAttribute="height" constant="44" id="9b3-Al-vOG"/>
                                                     <constraint firstAttribute="width" constant="320" id="psn-EM-TBh"/>
                                                 </constraints>
@@ -784,7 +801,7 @@
                                                 </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SCC-yS-ZYy" customClass="NUXSubmitButton" customModule="WordPress" customModuleProvider="target">
-                                                <rect key="frame" x="169.5" y="170.5" width="37" height="34"/>
+                                                <rect key="frame" x="169" y="204" width="37" height="34"/>
                                                 <accessibility key="accessibilityConfiguration" identifier="nextButton"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="34" id="zdM-ai-bO2"/>
@@ -802,60 +819,26 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstItem="SEI-vd-HCz" firstAttribute="leading" secondItem="Xko-S9-ChL" secondAttribute="leading" constant="30" id="7SJ-DA-y6V"/>
-                                            <constraint firstItem="YUi-5Z-4M0" firstAttribute="top" secondItem="shJ-M4-FKz" secondAttribute="bottom" constant="3.5" id="AmM-Sz-LPO"/>
-                                            <constraint firstItem="SEI-vd-HCz" firstAttribute="centerX" secondItem="Xko-S9-ChL" secondAttribute="centerX" id="QLe-t5-yMn"/>
-                                            <constraint firstItem="shJ-M4-FKz" firstAttribute="centerX" secondItem="Xko-S9-ChL" secondAttribute="centerX" id="VQp-Ze-y0H"/>
-                                            <constraint firstAttribute="bottom" secondItem="SCC-yS-ZYy" secondAttribute="bottom" id="XAp-VG-V5B"/>
-                                            <constraint firstItem="shJ-M4-FKz" firstAttribute="top" secondItem="Xko-S9-ChL" secondAttribute="top" constant="-29" id="a6t-fX-ouv"/>
-                                            <constraint firstItem="hih-uH-Cgh" firstAttribute="top" secondItem="SEI-vd-HCz" secondAttribute="bottom" constant="15" id="aQd-dL-F3J"/>
-                                            <constraint firstItem="YUi-5Z-4M0" firstAttribute="centerX" secondItem="Xko-S9-ChL" secondAttribute="centerX" id="mcA-qh-ufv"/>
-                                            <constraint firstItem="SCC-yS-ZYy" firstAttribute="centerX" secondItem="Xko-S9-ChL" secondAttribute="centerX" id="oyv-sc-MTW"/>
-                                            <constraint firstAttribute="trailing" secondItem="hih-uH-Cgh" secondAttribute="trailing" id="s6M-de-nJ1"/>
-                                            <constraint firstItem="SEI-vd-HCz" firstAttribute="top" secondItem="YUi-5Z-4M0" secondAttribute="bottom" constant="20" id="uax-WQ-8m9"/>
-                                            <constraint firstAttribute="width" constant="320" id="un8-Go-O4k"/>
-                                            <constraint firstItem="hih-uH-Cgh" firstAttribute="leading" secondItem="Xko-S9-ChL" secondAttribute="leading" id="utJ-GC-unl"/>
-                                            <constraint firstItem="SCC-yS-ZYy" firstAttribute="top" secondItem="hih-uH-Cgh" secondAttribute="bottom" constant="16" id="vyg-Zb-6xd"/>
-                                            <constraint firstAttribute="trailing" secondItem="SEI-vd-HCz" secondAttribute="trailing" constant="30" id="yem-bz-lBl"/>
+                                            <constraint firstAttribute="trailing" secondItem="hih-uH-Cgh" secondAttribute="trailing" id="4At-4B-1QL"/>
+                                            <constraint firstItem="9gh-hY-hQk" firstAttribute="leading" secondItem="sgk-Ea-2p9" secondAttribute="leading" constant="20" id="Ld2-F5-hvl"/>
+                                            <constraint firstItem="hih-uH-Cgh" firstAttribute="leading" secondItem="sgk-Ea-2p9" secondAttribute="leading" id="aaK-ix-nKs"/>
+                                            <constraint firstAttribute="trailing" secondItem="9gh-hY-hQk" secondAttribute="trailing" constant="20" id="cir-Su-Xka"/>
+                                            <constraint firstItem="nnz-tp-UEj" firstAttribute="leading" secondItem="sgk-Ea-2p9" secondAttribute="leading" constant="20" id="ptE-pU-Fls"/>
+                                            <constraint firstAttribute="trailing" secondItem="nnz-tp-UEj" secondAttribute="trailing" constant="20" id="vQa-9t-dyC"/>
                                         </constraints>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="un8-Go-O4k"/>
-                                            </mask>
-                                        </variation>
-                                        <variation key="heightClass=regular-widthClass=regular">
-                                            <mask key="constraints">
-                                                <include reference="un8-Go-O4k"/>
-                                            </mask>
-                                        </variation>
-                                    </view>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.2298797518" green="0.52114713189999995" blue="0.72555196290000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstItem="Xko-S9-ChL" firstAttribute="top" relation="greaterThanOrEqual" secondItem="b8W-Ah-zoi" secondAttribute="top" id="Mtv-30-xbk"/>
-                                    <constraint firstItem="Xko-S9-ChL" firstAttribute="leading" secondItem="b8W-Ah-zoi" secondAttribute="leading" id="ODM-Pt-wXI"/>
-                                    <constraint firstItem="hih-uH-Cgh" firstAttribute="centerY" secondItem="b8W-Ah-zoi" secondAttribute="centerY" priority="900" constant="-64" id="P8C-on-MSW"/>
-                                    <constraint firstItem="Xko-S9-ChL" firstAttribute="centerX" secondItem="b8W-Ah-zoi" secondAttribute="centerX" id="PsR-GX-oqZ"/>
-                                    <constraint firstAttribute="trailing" secondItem="Xko-S9-ChL" secondAttribute="trailing" id="mpf-if-RBP"/>
+                                    <constraint firstItem="sgk-Ea-2p9" firstAttribute="leading" secondItem="b8W-Ah-zoi" secondAttribute="leading" id="5EB-gV-jdg"/>
+                                    <constraint firstItem="sgk-Ea-2p9" firstAttribute="centerY" secondItem="b8W-Ah-zoi" secondAttribute="centerY" constant="-100" id="CWi-4A-A92"/>
+                                    <constraint firstAttribute="trailing" secondItem="sgk-Ea-2p9" secondAttribute="trailing" id="N6g-OD-qQT"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="2ndbg"/>
                                     <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="fad"/>
                                 </userDefinedRuntimeAttributes>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="PsR-GX-oqZ"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=regular">
-                                    <mask key="constraints">
-                                        <exclude reference="ODM-Pt-wXI"/>
-                                        <include reference="PsR-GX-oqZ"/>
-                                        <exclude reference="mpf-if-RBP"/>
-                                    </mask>
-                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

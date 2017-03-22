@@ -24,7 +24,7 @@ class SigninWPComPasswordViewController: NUXAbstractViewController {
         }
 
         let email = loginFields.username // because the email screen puts this in username instead of emailAddress ¯\_(ツ)_/¯
-        emailTextField.text = "Email: \(email)" // TODO: make this work, -nh
+        emailTextField.text = email // TODO: make this work, -nh
     }
 
     override func didReceiveMemoryWarning() {
