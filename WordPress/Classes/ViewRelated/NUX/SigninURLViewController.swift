@@ -146,13 +146,16 @@ import WordPressShared
         configureViewLoading(true)
 
         xmlrpcFacade.guessXMLRPCURL(forSite: loginFields.siteUrl, success: {[ weak self] (url) in
-            // Found the URL.
-            self?.didValidateForm(url: url)
-            self?.configureViewLoading(false)
-
+            DispatchQueue.main.async {
+                // Found the URL.
+                self?.didValidateForm(url: url)
+                self?.configureViewLoading(false)
+            }
         }, failure: { [weak self] (error) in
-            self?.configureViewLoading(false)
-            self?.handleXMLRPCError(error: error as NSError)
+            DispatchQueue.main.async {
+                self?.configureViewLoading(false)
+                self?.handleXMLRPCError(error: error as NSError)
+            }
         })
     }
 
