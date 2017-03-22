@@ -354,7 +354,7 @@ import Hero
     /// - Parameter loginFields: A LoginFields instance.
     ///
     class func openForgotPasswordURL(_ loginFields: LoginFields) {
-        let baseURL = loginFields.userIsDotCom ? "https://wordpress.com" : SigninHelpers.baseSiteURL(string: loginFields.siteUrl)
+        let baseURL = loginFields.userIsDotCom ? "https://wordpress.com" : SigninHelpers.baseSiteURL(string: loginFields.siteUrl.removingSuffix("/xmlrpc.php"))
         let forgotPasswordURL = URL(string: baseURL + "/wp-login.php?action=lostpassword&redirect_to=wordpress%3A%2F%2F")!
         UIApplication.shared.open(forgotPasswordURL)
     }

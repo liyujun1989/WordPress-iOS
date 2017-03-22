@@ -90,7 +90,7 @@ import WordPressShared
 
         let host = url.host ?? ""
         let path = url.path ?? ""
-        siteURLLabel.text = host + path.removingSuffix("xmlrpc.php")
+        siteURLLabel.text = host + path.removingSuffix("/xmlrpc.php")
     }
 
 
