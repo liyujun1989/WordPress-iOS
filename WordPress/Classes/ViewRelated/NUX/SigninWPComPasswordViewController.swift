@@ -11,7 +11,14 @@ import UIKit
 class SigninWPComPasswordViewController: NUXAbstractViewController {
 
     @IBOutlet var emailTextField: UILabel?
+    @IBOutlet weak var passwordField: WPWalkthroughTextField?
 
+    lazy var loginFacade: LoginFacade = {
+        let facade = LoginFacade()
+        facade.delegate = self
+        return facade
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,16 +38,62 @@ class SigninWPComPasswordViewController: NUXAbstractViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func nextTapped() {
+        attemptLogin()
     }
-    */
+    
+    @IBAction func handleSubmitForm() {
+        attemptLogin()
+    }
+    
+    func attemptLogin() {
+        guard let passwordField = passwordField else {
+            return
+        }
+        loginFields.password = passwordField.nonNilTrimmedText()
+        
+        loginFacade.signIn(with: loginFields)
+    }
+}
 
+extension SigninWPComPasswordViewController: SigninWPComSyncHandler {
+    func configureViewLoading(_ loading: Bool) {
+    }
+    func configureStatusLabel(_ message: String) {
+    }
+    func updateSafariCredentialsIfNeeded() {
+    }
+}
+
+extension SigninWPComPasswordViewController: LoginFacadeDelegate {
+    
+    func finishedLogin(withUsername username: String!, authToken: String!, requiredMultifactorCode: Bool) {
+        syncWPCom(username, authToken: authToken, requiredMultifactor: requiredMultifactorCode)
+    }
+    
+    
+    func displayLoginMessage(_ message: String!) {
+        configureStatusLabel(message)
+    }
+    
+    
+    func displayRemoteError(_ error: Error!) {
+        configureStatusLabel("")
+        configureViewLoading(false)
+        displayError(error as NSError, sourceTag: sourceTag)
+    }
+    
+    
+    func needsMultifactorCode() {
+        configureStatusLabel("")
+        configureViewLoading(false)
+        
+        WPAppAnalytics.track(.twoFactorCodeRequested)
+        // Credentials were good but a 2fa code is needed.
+        loginFields.shouldDisplayMultifactor = true // technically not needed
+        let controller = Signin2FAViewController.controller(loginFields)
+        controller.dismissBlock = dismissBlock
+        navigationController?.pushViewController(controller, animated: true)
+    }
 }
