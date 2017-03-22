@@ -289,6 +289,10 @@ import WordPressShared
         guard emailOrUsername.isValidEmail() else {
             // A username was entered, not an email address.
             // Proceed to the next form:
+            
+            self.performSegue(withIdentifier: "emailError", sender: self)
+            
+            /*
             if !SigninHelpers.isUsernameReserved(emailOrUsername) {
                 signinWithUsernamePassword()
 
@@ -304,6 +308,7 @@ import WordPressShared
                 // Switch to the signin flow when not restricted.
                 signinToSelfHostedSite()
             }
+ */
             return
         }
 
@@ -314,9 +319,14 @@ import WordPressShared
             success: { [weak self] (available: Bool) in
                 self?.configureViewLoading(false)
                 if (available) {
+                    guard let `self` = self else {
+                        return
+                    }
+                    self.performSegue(withIdentifier: "emailError", sender: self)
+                    return
                     // No matching email address found so treat this as a
                     // self-hosted sign in.
-                    self?.signinToSelfHostedSite()
+                    //self?.signinToSelfHostedSite()
                 } else {
                     self?.requestLink()
                 }

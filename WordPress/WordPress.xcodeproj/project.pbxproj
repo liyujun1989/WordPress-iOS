@@ -149,6 +149,7 @@
 		374CB16215B93C0800DD0EBC /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 374CB16115B93C0800DD0EBC /* AudioToolbox.framework */; };
 		37EAAF4D1A11799A006D6306 /* CircularImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EAAF4C1A11799A006D6306 /* CircularImageView.swift */; };
 		430693741DD25F31009398A2 /* PostPost.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 430693731DD25F31009398A2 /* PostPost.storyboard */; };
+		43278F021E81D374009956BA /* SigninWPComPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43278F011E81D374009956BA /* SigninWPComPasswordViewController.swift */; };
 		437542E31DD4E19E00D6B727 /* EditPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437542E21DD4E19E00D6B727 /* EditPostViewController.swift */; };
 		43AB7C5E1D3E70510066CB6A /* PostListFilterSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AB7C5D1D3E70510066CB6A /* PostListFilterSettings.swift */; };
 		43D54D131DCAA070007F575F /* PostPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D54D121DCAA070007F575F /* PostPostViewController.swift */; };
@@ -1225,6 +1226,7 @@
 		37EAAF4C1A11799A006D6306 /* CircularImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularImageView.swift; sourceTree = "<group>"; };
 		3BDDF00D75A0F0BE66FF48AA /* Pods-WordPressTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WordPressTest.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-WordPressTest/Pods-WordPressTest.debug.xcconfig"; sourceTree = "<group>"; };
 		430693731DD25F31009398A2 /* PostPost.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PostPost.storyboard; sourceTree = "<group>"; };
+		43278F011E81D374009956BA /* SigninWPComPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SigninWPComPasswordViewController.swift; sourceTree = "<group>"; };
 		437542E21DD4E19E00D6B727 /* EditPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditPostViewController.swift; sourceTree = "<group>"; };
 		43AB7C5D1D3E70510066CB6A /* PostListFilterSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostListFilterSettings.swift; sourceTree = "<group>"; };
 		43D54D121DCAA070007F575F /* PostPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostPostViewController.swift; sourceTree = "<group>"; };
@@ -4996,6 +4998,7 @@
 				E6417BA11CA07D910084050A /* Signin2FAViewController.swift */,
 				E691D62D1CA4B0C9005C91ED /* SigninErrorViewController.swift */,
 				E6DB765E1CD10D7C0069BC82 /* SignupViewController.swift */,
+				43278F011E81D374009956BA /* SigninWPComPasswordViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -6235,6 +6238,7 @@
 				E19B17B01E5C69A5007517C6 /* NSManagedObject.swift in Sources */,
 				E15644EF1CE0E53B00D96E64 /* PlanListViewModel.swift in Sources */,
 				93C1147F18EC5DD500DAC95C /* AccountService.m in Sources */,
+				43278F021E81D374009956BA /* SigninWPComPasswordViewController.swift in Sources */,
 				E6374DBF1C444D8B00F24720 /* KeyringConnection.swift in Sources */,
 				FF945F701B28242300FB8AC4 /* MediaLibraryPickerDataSource.m in Sources */,
 				BE87E1A21BD405790075D45B /* WP3DTouchShortcutHandler.swift in Sources */,
