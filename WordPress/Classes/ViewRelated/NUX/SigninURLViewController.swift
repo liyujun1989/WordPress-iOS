@@ -197,7 +197,7 @@ import WordPressShared
     }
 
     func configureStatusLabel(_ message: String) {
-        statusLabel.text = message
+
     }
 
     
