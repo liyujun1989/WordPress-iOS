@@ -37,7 +37,7 @@ import Hero
     class func showSigninFromPresenter(_ presenter: UIViewController, animated: Bool, thenEditor: Bool) {
         let controller = createControllerForSigninFlow(showsEditor: thenEditor)
         let navController = NUXNavigationController(rootViewController: controller)
-        navController.isHeroEnabled = true
+        //navController.isHeroEnabled = true
         navController.heroNavigationAnimationType = .auto
         presenter.present(navController, animated: animated, completion: nil)
 

@@ -68,11 +68,11 @@ import WordPressShared
     /// Assigns localized strings to various UIControl defined in the storyboard.
     ///
     func localizeControls() {
-        siteURLField.placeholder = NSLocalizedString("Site Address (URL)", comment: "Site Address placeholder")
-
-        let submitButtonTitle = NSLocalizedString("Add Site", comment: "Title of a button. The text should be uppercase.").localizedUppercase
-        submitButton.setTitle(submitButtonTitle, for: UIControlState())
-        submitButton.setTitle(submitButtonTitle, for: .highlighted)
+//        siteURLField.placeholder = NSLocalizedString("Site Address (URL)", comment: "Site Address placeholder")
+//
+//        let submitButtonTitle = NSLocalizedString("Add Site", comment: "Title of a button. The text should be uppercase.").localizedUppercase
+//        submitButton.setTitle(submitButtonTitle, for: UIControlState())
+//        submitButton.setTitle(submitButtonTitle, for: .highlighted)
     }
 
 
