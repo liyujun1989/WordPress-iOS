@@ -5,9 +5,10 @@ import WordPressShared
 /// site to the app.
 ///
 @objc class SigninSelfHostedViewController: NUXAbstractViewController, SigninKeyboardResponder, SigninWPComSyncHandler {
+    @IBOutlet weak var siteIcon: UIImageView!
+    @IBOutlet weak var siteURLLabel: UILabel!
     @IBOutlet weak var usernameField: WPWalkthroughTextField!
     @IBOutlet weak var passwordField: WPWalkthroughTextField!
-    @IBOutlet weak var siteURLField: WPWalkthroughTextField!
     @IBOutlet weak var submitButton: NUXSubmitButton!
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var forgotPasswordButton: WPNUXSecondaryButton!
@@ -32,7 +33,7 @@ import WordPressShared
     /// - Parameter loginFields: A LoginFields instance containing any prefilled credentials.
     ///
     class func controller(_ loginFields: LoginFields) -> SigninSelfHostedViewController {
-        let storyboard = UIStoryboard(name: "Signin", bundle: Bundle.main)
+        let storyboard = UIStoryboard(name: "SigninSelfHosted", bundle: Bundle.main)
         let controller = storyboard.instantiateViewController(withIdentifier: "SigninSelfHostedViewController") as! SigninSelfHostedViewController
         controller.loginFields = loginFields
         return controller
@@ -57,6 +58,7 @@ import WordPressShared
         // Update special case login fields.
         loginFields.userIsDotCom = false
 
+        configureSiteInfo()
         configureTextFields()
         configureSubmitButton(animating: false)
         configureViewForEditingIfNeeded()
@@ -80,12 +82,23 @@ import WordPressShared
     // MARK: Setup and Configuration
 
 
+    func configureSiteInfo() {
+        guard let url = NSURL(string: loginFields.siteUrl) else {
+            assertionFailure("The value of siteUrl should be a valid URL")
+            return
+        }
+
+        let host = url.host ?? ""
+        let path = url.path ?? ""
+        siteURLLabel.text = host + path.removingSuffix("xmlrpc.php")
+    }
+
+
     /// Assigns localized strings to various UIControl defined in the storyboard.
     ///
     func localizeControls() {
         usernameField.placeholder = NSLocalizedString("Username / Email", comment: "Username placeholder")
         passwordField.placeholder = NSLocalizedString("Password", comment: "Password placeholder")
-        siteURLField.placeholder = NSLocalizedString("Site Address (URL)", comment: "Site Address placeholder")
 
         let submitButtonTitle = NSLocalizedString("Add Site", comment: "Title of a button. The text should be uppercase.").localizedUppercase
         submitButton.setTitle(submitButtonTitle, for: UIControlState())
@@ -111,7 +124,6 @@ import WordPressShared
     func configureTextFields() {
         usernameField.text = loginFields.username
         passwordField.text = loginFields.password
-        siteURLField.text = loginFields.siteUrl
     }
 
 
@@ -153,7 +165,6 @@ import WordPressShared
     func configureViewLoading(_ loading: Bool) {
         usernameField.isEnabled = !loading
         passwordField.isEnabled = !loading
-        siteURLField.isEnabled = !loading
 
         configureSubmitButton(animating: loading)
         configureForgotPasswordButton()
@@ -233,7 +244,6 @@ import WordPressShared
     @IBAction func handleTextFieldDidChange(_ sender: UITextField) {
         loginFields.username = usernameField.nonNilTrimmedText()
         loginFields.password = passwordField.nonNilTrimmedText()
-        loginFields.siteUrl = SigninHelpers.baseSiteURL(string: siteURLField.nonNilTrimmedText())
 
         configureForgotPasswordButton()
         configureSubmitButton(animating: false)
@@ -337,8 +347,6 @@ extension SigninSelfHostedViewController: UITextFieldDelegate {
         if textField == usernameField {
             passwordField.becomeFirstResponder()
         } else if textField == passwordField {
-            siteURLField.becomeFirstResponder()
-        } else if submitButton.isEnabled {
             validateForm()
         }
         return true
