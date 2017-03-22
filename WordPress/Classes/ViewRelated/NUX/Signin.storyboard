@@ -1916,7 +1916,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="handleUsePasswordTapped:" destination="GSd-vy-rpZ" eventType="touchUpInside" id="UUF-Fp-JjJ"/>
+                                    <segue destination="lWR-Jm-tlB" kind="show" id="Ncm-cS-fDT"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1942,7 +1942,6 @@
                     <connections>
                         <outlet property="label" destination="pkM-xx-821" id="nOS-5r-86h"/>
                         <outlet property="openMailButton" destination="0Iy-9H-ykD" id="Xwh-40-c65"/>
-                        <outlet property="usePasswordButton" destination="b0O-LO-6ax" id="mqE-R7-rGj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ypF-IN-pDx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1969,4 +1968,7 @@
         <image name="logo-wpcom-type" width="152" height="28"/>
         <image name="logo-wpcom-vertical" width="152" height="106"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Ncm-cS-fDT"/>
+    </inferredMetricsTieBreakers>
 </document>
