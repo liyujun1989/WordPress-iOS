@@ -289,9 +289,7 @@ import WordPressShared
         guard emailOrUsername.isValidEmail() else {
             // A username was entered, not an email address.
             // Proceed to the next form:
-            
-            self.performSegue(withIdentifier: "emailError", sender: self)
-            
+            displayError(message: "Please enter a valid email", sourceTag: .wpComLogin)
             /*
             if !SigninHelpers.isUsernameReserved(emailOrUsername) {
                 signinWithUsernamePassword()

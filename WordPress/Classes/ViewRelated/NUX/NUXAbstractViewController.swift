@@ -152,6 +152,14 @@ class NUXAbstractViewController: UIViewController {
         controller.presentFromController(presentingController)
         controller.displayError(error, loginFields: loginFields, delegate: self, sourceTag: sourceTag)
     }
+    
+    func displayError(message: String, sourceTag: SupportSourceTag) {
+        let presentingController = navigationController ?? self
+        let controller = SigninErrorViewController.controller()
+        controller.presentFromController(presentingController)
+        controller.displayGenericErrorMessage(message, sourceTag: sourceTag)
+//        controller.displayError(error, loginFields: loginFields, delegate: self, sourceTag: sourceTag)
+    }
 
 
     /// It is assumed that NUX view controllers are always presented modally.
