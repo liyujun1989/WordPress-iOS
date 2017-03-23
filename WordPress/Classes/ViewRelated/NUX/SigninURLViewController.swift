@@ -156,7 +156,7 @@ import WordPressShared
         }, failure: { [weak self] (error) in
             DispatchQueue.main.async {
                 self?.configureViewLoading(false)
-                self?.handleXMLRPCError(error: error as NSError)
+                self?.handleGuessXMLRPCError(error: error as NSError)
             }
         })
     }
@@ -177,38 +177,22 @@ import WordPressShared
     }
 
 
-    func handleXMLRPCError(error: NSError) {
+    func handleGuessXMLRPCError(error: NSError) {
         // TODO: Different error can occur.
-
-
-        // Network unavailable.
-
-
-        // No site found
-
-
-        // Site found not WordPress site
-
-
-        // Other HTTP 500 or 400 error.
-
-
-        // Request timed out.
-
-
+        displayError(error as NSError, sourceTag: sourceTag)
     }
 
     func configureStatusLabel(_ message: String) {}
-    
+
     func showExplaination() {
         guard let helpLabel = helpLabel else {
             return
         }
-        
+
         helpLabel.isHidden = false
     }
 
-    
+
     // MARK: - Actions
 
 
@@ -222,7 +206,7 @@ import WordPressShared
     @IBAction func handleSubmitButtonTapped(_ sender: UIButton) {
         validateForm()
     }
-    
+
     @IBAction func handleExplainTapped() {
         showExplaination()
     }
