@@ -18,31 +18,9 @@
     WordPressOrgXMLRPCValidator *validator = [[WordPressOrgXMLRPCValidator alloc] init];
     [validator guessXMLRPCURLForSite:url success:success failure:^(NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
-//            failure([self errorForGuessXMLRPCApiFailure:error]);
             failure(error);
         });
     }];
-}
-
-- (NSError *)errorForGuessXMLRPCApiFailure:(NSError *)error
-{
-    DDLogError(@"Error on trying to guess XMLRPC site: %@", error);
-    NSArray *errorCodes = @[
-                            @(NSURLErrorUserCancelledAuthentication),
-                            @(NSURLErrorNotConnectedToInternet),
-                            @(NSURLErrorNetworkConnectionLost),
-                            ];
-    if ([error.domain isEqual:NSURLErrorDomain] && [errorCodes containsObject:@(error.code)]) {
-        return error;
-    } else {
-        NSDictionary *userInfo = @{
-                                   NSLocalizedDescriptionKey: NSLocalizedString(@"Unable to read the WordPress site at that URL. Tap 'Need Help?' to view the FAQ.", nil),
-                                   NSLocalizedFailureReasonErrorKey: error.localizedDescription
-                                   };
-        NSError *err = [NSError errorWithDomain:WordPressAppErrorDomain code:NSURLErrorBadURL userInfo:userInfo];
-        return err;
-    }
-
 }
 
 - (void)getBlogOptionsWithEndpoint:(NSURL *)xmlrpc
@@ -68,6 +46,5 @@
         });
     }];
 }
-
 
 @end
