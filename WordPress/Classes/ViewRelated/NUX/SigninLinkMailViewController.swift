@@ -73,8 +73,15 @@ class SigninLinkMailViewController: NUXAbstractViewController {
 
 
     @IBAction func handleOpenMailTapped(_ sender: UIButton) {
-        let url = URL(string: "message://")!
-        UIApplication.shared.open(url)
+        let userInfo = [
+            NSLocalizedDescriptionKey: "Hi! The ability to request a magic sign-in link is disabled for this test, and no email was sent.  Thank you for giving the feature a try.",
+        ]
+        let error = NSError(domain: "", code: 0, userInfo: userInfo)
+        displayError(error, sourceTag: sourceTag)
+
+// Disabled while user testing
+//        let url = URL(string: "message://")!
+//        UIApplication.shared.open(url)
     }
 
 
