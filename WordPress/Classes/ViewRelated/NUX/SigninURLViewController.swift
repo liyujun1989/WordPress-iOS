@@ -54,8 +54,7 @@ import WordPressShared
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        // Update special case login fields.
-        loginFields.userIsDotCom = false
+        replace(loginFields: LoginFields())
 
         configureTextFields()
         configureSubmitButton(animating: false)
@@ -162,7 +161,7 @@ import WordPressShared
 
 
     func didValidateForm(url: URL) {
-        loginFields.siteUrl = url.absoluteString
+        loginFields.xmlrpcUrl = url.absoluteString
 
         let controller: UIViewController
         if loginFields.siteUrl.contains("wordpress.com/xmlrpc.php") {

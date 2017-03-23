@@ -150,6 +150,7 @@
 		37EAAF4D1A11799A006D6306 /* CircularImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EAAF4C1A11799A006D6306 /* CircularImageView.swift */; };
 		430693741DD25F31009398A2 /* PostPost.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 430693731DD25F31009398A2 /* PostPost.storyboard */; };
 		43278F021E81D374009956BA /* SigninWPComPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43278F011E81D374009956BA /* SigninWPComPasswordViewController.swift */; };
+		435C04981E847971001DDB1A /* SigninPromoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435C04971E847971001DDB1A /* SigninPromoViewController.swift */; };
 		4370DF751E82E0670061AE24 /* SigninSelfHosted.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4370DF741E82E0670061AE24 /* SigninSelfHosted.storyboard */; };
 		437542E31DD4E19E00D6B727 /* EditPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437542E21DD4E19E00D6B727 /* EditPostViewController.swift */; };
 		43AB7C5E1D3E70510066CB6A /* PostListFilterSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AB7C5D1D3E70510066CB6A /* PostListFilterSettings.swift */; };
@@ -1229,6 +1230,7 @@
 		3BDDF00D75A0F0BE66FF48AA /* Pods-WordPressTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WordPressTest.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-WordPressTest/Pods-WordPressTest.debug.xcconfig"; sourceTree = "<group>"; };
 		430693731DD25F31009398A2 /* PostPost.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PostPost.storyboard; sourceTree = "<group>"; };
 		43278F011E81D374009956BA /* SigninWPComPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SigninWPComPasswordViewController.swift; sourceTree = "<group>"; };
+		435C04971E847971001DDB1A /* SigninPromoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SigninPromoViewController.swift; sourceTree = "<group>"; };
 		4370DF741E82E0670061AE24 /* SigninSelfHosted.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SigninSelfHosted.storyboard; sourceTree = "<group>"; };
 		437542E21DD4E19E00D6B727 /* EditPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditPostViewController.swift; sourceTree = "<group>"; };
 		43AB7C5D1D3E70510066CB6A /* PostListFilterSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostListFilterSettings.swift; sourceTree = "<group>"; };
@@ -5005,6 +5007,7 @@
 				E6AC5B811E81BB080017D3AE /* SigninURLViewController.swift */,
 				E6DB765E1CD10D7C0069BC82 /* SignupViewController.swift */,
 				43278F011E81D374009956BA /* SigninWPComPasswordViewController.swift */,
+				435C04971E847971001DDB1A /* SigninPromoViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -6413,6 +6416,7 @@
 				B5DBE4FE1D21A700002E81D3 /* NotificationsViewController.swift in Sources */,
 				B5772AC91C9C859D0031F97E /* GravatarServiceRemote.swift in Sources */,
 				E1B84F001E02E94D00BF6434 /* PingHubManager.swift in Sources */,
+				435C04981E847971001DDB1A /* SigninPromoViewController.swift in Sources */,
 				E61084C11B9B47BA008050C5 /* ReaderSiteTopic.swift in Sources */,
 				5DAE40AD19EC70930011A0AE /* ReaderPostHeaderView.m in Sources */,
 				FFB0DEAA1D38061B00DD4A50 /* WPImageURLHelper.swift in Sources */,

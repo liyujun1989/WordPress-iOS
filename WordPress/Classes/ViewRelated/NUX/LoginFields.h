@@ -10,6 +10,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *username;
 @property (nonatomic, copy) NSString *password;
 @property (nonatomic, copy) NSString *siteUrl;
+@property (nonatomic, copy) NSString *xmlrpcUrl;
 @property (nonatomic, copy) NSString *multifactorCode;
 @property (nonatomic, assign) BOOL userIsDotCom;
 @property (nonatomic, assign) BOOL shouldDisplayMultifactor;
