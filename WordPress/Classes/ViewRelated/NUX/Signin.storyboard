@@ -721,7 +721,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="sgk-Ea-2p9">
-                                <rect key="frame" x="0.0" y="114.5" width="375" height="238"/>
+                                <rect key="frame" x="0.0" y="115" width="375" height="238"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="nnz-tp-UEj">
                                         <rect key="frame" x="20" y="0.0" width="335" height="80"/>
@@ -748,14 +748,14 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="9gh-hY-hQk">
                                         <rect key="frame" x="20" y="95" width="335" height="35"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qJL-Jy-0Xm">
-                                                <rect key="frame" x="0.0" y="0.0" width="34" height="14.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qJL-Jy-0Xm">
+                                                <rect key="frame" x="0.0" y="0.0" width="34" height="14"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SEI-vd-HCz">
-                                                <rect key="frame" x="0.0" y="14.5" width="45.5" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Email:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SEI-vd-HCz">
+                                                <rect key="frame" x="0.0" y="14" width="45.5" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="TVJ-Ve-hAH"/>
                                                 </constraints>
@@ -765,31 +765,15 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hih-uH-Cgh" customClass="WPWalkthroughTextField">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hih-uH-Cgh" customClass="WPWalkthroughTextField">
                                         <rect key="frame" x="0.0" y="145" width="375" height="44"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <accessibility key="accessibilityConfiguration" identifier="usernameField"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="3Q9-BX-p4g"/>
-                                            <constraint firstAttribute="height" constant="44" id="9b3-Al-vOG"/>
-                                            <constraint firstAttribute="width" constant="320" id="psn-EM-TBh"/>
-                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="image" keyPath="leftViewImage" value="icon-password-field"/>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="usernameField"/>
                                         </userDefinedRuntimeAttributes>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="psn-EM-TBh"/>
-                                            </mask>
-                                        </variation>
-                                        <variation key="heightClass=regular-widthClass=regular">
-                                            <mask key="constraints">
-                                                <include reference="psn-EM-TBh"/>
-                                            </mask>
-                                        </variation>
                                         <connections>
                                             <action selector="handleSubmitForm" destination="lWR-Jm-tlB" eventType="primaryActionTriggered" id="xZf-Ux-XJT"/>
                                         </connections>
@@ -804,22 +788,18 @@
                                         <state key="normal" title="NEXT">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="primeButton"/>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="position, size, opacity, fade"/>
-                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="nextTapped" destination="lWR-Jm-tlB" eventType="touchUpInside" id="iub-ft-Oay"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="hih-uH-Cgh" secondAttribute="trailing" id="4At-4B-1QL"/>
+                                    <constraint firstItem="hih-uH-Cgh" firstAttribute="leading" secondItem="sgk-Ea-2p9" secondAttribute="leading" id="5Vp-mu-Lak"/>
                                     <constraint firstItem="9gh-hY-hQk" firstAttribute="leading" secondItem="sgk-Ea-2p9" secondAttribute="leading" constant="20" id="Ld2-F5-hvl"/>
-                                    <constraint firstItem="hih-uH-Cgh" firstAttribute="leading" secondItem="sgk-Ea-2p9" secondAttribute="leading" id="aaK-ix-nKs"/>
                                     <constraint firstAttribute="trailing" secondItem="9gh-hY-hQk" secondAttribute="trailing" constant="20" id="cir-Su-Xka"/>
                                     <constraint firstItem="nnz-tp-UEj" firstAttribute="leading" secondItem="sgk-Ea-2p9" secondAttribute="leading" constant="20" id="ptE-pU-Fls"/>
                                     <constraint firstAttribute="trailing" secondItem="nnz-tp-UEj" secondAttribute="trailing" constant="20" id="vQa-9t-dyC"/>
+                                    <constraint firstItem="hih-uH-Cgh" firstAttribute="top" secondItem="sgk-Ea-2p9" secondAttribute="top" constant="145" id="x04-i0-jWl"/>
                                 </constraints>
                             </stackView>
                         </subviews>
