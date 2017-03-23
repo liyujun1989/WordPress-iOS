@@ -10,7 +10,15 @@ import WordPressShared
 class NUXAbstractViewController: UIViewController {
     var helpBadge: WPNUXHelpBadgeLabel!
     var helpButton: UIButton!
-    var loginFields = LoginFields()
+    static var loginFields = LoginFields()
+    var loginFields: LoginFields {
+        get {
+            return NUXAbstractViewController.loginFields
+        }
+    }
+    func replace(loginFields newLoginFields: LoginFields) {
+        NUXAbstractViewController.loginFields = newLoginFields
+    }
 
     let helpButtonMarginSpacerWidth = CGFloat(-8)
     let helpBadgeSize = CGSize(width: 12, height: 10)

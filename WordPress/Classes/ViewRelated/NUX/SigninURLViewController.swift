@@ -36,7 +36,6 @@ import WordPressShared
     class func controller(_ loginFields: LoginFields) -> SigninURLViewController {
         let storyboard = UIStoryboard(name: "Signin", bundle: Bundle.main)
         let controller = storyboard.instantiateViewController(withIdentifier: "SigninURLViewController") as! SigninURLViewController
-        controller.loginFields = loginFields
         return controller
     }
 

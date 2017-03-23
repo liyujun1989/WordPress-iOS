@@ -24,7 +24,6 @@ class SigninLinkRequestViewController: NUXAbstractViewController {
     class func controller(_ loginFields: LoginFields) -> SigninLinkRequestViewController {
         let storyboard = UIStoryboard(name: "Signin", bundle: Bundle.main)
         let controller = storyboard.instantiateViewController(withIdentifier: "SigninLinkRequestViewController") as! SigninLinkRequestViewController
-        controller.loginFields = loginFields
         return controller
     }
 

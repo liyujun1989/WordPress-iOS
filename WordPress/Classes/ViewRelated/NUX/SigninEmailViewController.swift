@@ -44,7 +44,6 @@ import WordPressShared
     class func controller(_ loginFields: LoginFields? = nil) -> SigninEmailViewController {
         let storyboard = UIStoryboard(name: "Signin", bundle: Bundle.main)
         let controller = storyboard.instantiateViewController(withIdentifier: "SigninEmailViewController") as! SigninEmailViewController
-        controller.loginFields = loginFields == nil ? LoginFields() : loginFields!
         return controller
     }
 

@@ -23,7 +23,6 @@ class SigninLinkMailViewController: NUXAbstractViewController {
     class func controller(_ loginFields: LoginFields) -> SigninLinkMailViewController {
         let storyboard = UIStoryboard(name: "Signin", bundle: Bundle.main)
         let controller = storyboard.instantiateViewController(withIdentifier: "SigninLinkMailViewController") as! SigninLinkMailViewController
-        controller.loginFields = loginFields
         return controller
     }
 

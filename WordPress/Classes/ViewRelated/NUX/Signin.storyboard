@@ -83,7 +83,7 @@
                                             <constraint firstAttribute="height" constant="34" id="J1a-yG-SIC"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <state key="normal" title="Start a site on WordPress.com">
+                                        <state key="normal" title="Create a WordPress site">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -161,7 +161,7 @@
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XXO-aV-keK" customClass="WPWalkthroughTextField">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="pamela@example.com" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XXO-aV-keK" customClass="WPWalkthroughTextField">
                                                 <rect key="frame" x="0.0" y="132" width="375" height="44"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <accessibility key="accessibilityConfiguration" identifier="usernameField"/>
@@ -680,6 +680,22 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="mBe-zH-IfZ">
+                                <rect key="frame" x="66.5" y="623" width="242" height="28"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="anN-dQ-fFx">
+                                        <rect key="frame" x="0.0" y="0.0" width="242" height="28"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="addSelfHostedButton"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <state key="normal" title="Enter a username and password instead">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="hp1-uh-OnP" kind="show" id="uRH-55-Cmq"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="qKL-Ag-uxa">
                                 <rect key="frame" x="101" y="723" width="242" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -698,8 +714,10 @@
                         <color key="backgroundColor" red="0.2298797518" green="0.52114713189999995" blue="0.72555196290000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="myD-fV-tYa" secondAttribute="bottom" id="GuI-3p-5Ne"/>
+                            <constraint firstItem="gwa-Of-NOC" firstAttribute="top" secondItem="mBe-zH-IfZ" secondAttribute="bottom" constant="16" id="P3A-tI-nVk"/>
                             <constraint firstAttribute="trailing" secondItem="myD-fV-tYa" secondAttribute="trailing" id="PCH-wr-tdl"/>
                             <constraint firstItem="myD-fV-tYa" firstAttribute="leading" secondItem="4f1-jW-7qL" secondAttribute="leading" id="ZFC-as-gHC"/>
+                            <constraint firstItem="mBe-zH-IfZ" firstAttribute="centerX" secondItem="4f1-jW-7qL" secondAttribute="centerX" id="g9Q-fg-Ryp"/>
                             <constraint firstItem="myD-fV-tYa" firstAttribute="top" secondItem="ccg-Zn-YPm" secondAttribute="bottom" id="sV7-dB-uoZ"/>
                         </constraints>
                     </view>
@@ -748,13 +766,13 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="9gh-hY-hQk">
                                         <rect key="frame" x="20" y="95" width="335" height="35"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qJL-Jy-0Xm">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qJL-Jy-0Xm">
                                                 <rect key="frame" x="0.0" y="0.0" width="34" height="14"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Email:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SEI-vd-HCz">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SEI-vd-HCz">
                                                 <rect key="frame" x="0.0" y="14" width="45.5" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="TVJ-Ve-hAH"/>
@@ -1743,6 +1761,7 @@
         <image name="logo-wpcom-vertical" width="152" height="106"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="uRH-55-Cmq"/>
         <segue reference="Ncm-cS-fDT"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -22,19 +22,15 @@
 
 - (instancetype)init
 {
-    static LoginFields *sharedLoginFields = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        sharedLoginFields = [super init];
-        if (sharedLoginFields) {
-            sharedLoginFields.emailAddress = @"";
-            sharedLoginFields.username = @"";
-            sharedLoginFields.password = @"";
-            sharedLoginFields.siteUrl = @"";
-            sharedLoginFields.multifactorCode = @"";
-        }
-    });
-    return sharedLoginFields;
+    self = [super init];
+    if (self) {
+        _emailAddress = @"";
+        _username = @"";
+        _password = @"";
+        _siteUrl = @"";
+        _multifactorCode = @"";
+    }
+    return self;
 }
 
 

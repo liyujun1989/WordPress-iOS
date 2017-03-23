@@ -48,7 +48,6 @@ import WordPressShared
     class func controller(_ loginFields: LoginFields, immediateSignin: Bool = false) -> SigninWPComViewController {
         let storyboard = UIStoryboard(name: "Signin", bundle: Bundle.main)
         let controller = storyboard.instantiateViewController(withIdentifier: "SigninWPComViewController") as! SigninWPComViewController
-        controller.loginFields = loginFields
         controller.immediateSignin = immediateSignin
         return controller
     }
