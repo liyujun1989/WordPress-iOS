@@ -986,134 +986,13 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="k3n-0p-7ht" kind="show" id="AhQ-o9-0u4"/>
+                                    <action selector="handleExplainTapped" destination="hp1-uh-OnP" eventType="touchUpInside" id="AKa-mC-Z6f"/>
                                 </connections>
                             </button>
-                        </subviews>
-                        <color key="backgroundColor" red="0.2298797518" green="0.52114713189999995" blue="0.72555196290000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <constraints>
-                            <constraint firstItem="989-r5-yYz" firstAttribute="centerY" secondItem="79B-Xy-b7C" secondAttribute="centerY" constant="-100" id="5Hu-ao-Cht"/>
-                            <constraint firstItem="989-r5-yYz" firstAttribute="leading" secondItem="79B-Xy-b7C" secondAttribute="leading" id="VZf-hV-eMO"/>
-                            <constraint firstItem="adO-ez-fJ6" firstAttribute="centerX" secondItem="79B-Xy-b7C" secondAttribute="centerX" id="hGM-1e-N1h"/>
-                            <constraint firstAttribute="right" secondItem="989-r5-yYz" secondAttribute="right" id="tzt-7t-kHl"/>
-                            <constraint firstItem="oi1-YL-qyG" firstAttribute="top" secondItem="adO-ez-fJ6" secondAttribute="bottom" constant="15" id="zXf-hX-rT1"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="siteURLField" destination="ces-2W-SRN" id="QCO-B0-bfh"/>
-                        <outlet property="submitButton" destination="F56-2S-eLR" id="1WD-2I-q1q"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UuW-0h-YMh" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="262" y="1431"/>
-        </scene>
-        <!--Don't know address-->
-        <scene sceneID="JFl-BJ-hPD">
-            <objects>
-                <viewController id="k3n-0p-7ht" userLabel="Don't know address" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="iid-Xv-XeE"/>
-                        <viewControllerLayoutGuide type="bottom" id="grQ-Nn-a06"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="uUt-n0-zC5">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="MUP-7e-AqV">
-                                <rect key="frame" x="0.0" y="135.5" width="375" height="196"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-wp" translatesAutoresizingMaskIntoConstraints="NO" id="wSx-K9-p30">
-                                        <rect key="frame" x="155.5" y="0.0" width="64" height="52"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="64" id="SrW-vw-LdN"/>
-                                            <constraint firstAttribute="height" constant="52" id="c2j-1Q-Dem"/>
-                                        </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="wplogo"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter the address of your WordPress site" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qQg-md-d4g">
-                                        <rect key="frame" x="31.5" y="67" width="312.5" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="F5h-yk-niO"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <nil key="highlightedColor"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="httpDescription"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="http://" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="abA-Dp-ROZ" customClass="WPWalkthroughTextField">
-                                        <rect key="frame" x="0.0" y="103" width="375" height="44"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="usernameField"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="320" id="2QV-5L-dv4"/>
-                                            <constraint firstAttribute="height" constant="44" id="9Ca-8b-eGx"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="image" keyPath="leftViewImage" value="icon-username-field"/>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="httpField"/>
-                                        </userDefinedRuntimeAttributes>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="2QV-5L-dv4"/>
-                                            </mask>
-                                        </variation>
-                                        <variation key="heightClass=regular-widthClass=regular">
-                                            <mask key="constraints">
-                                                <include reference="2QV-5L-dv4"/>
-                                            </mask>
-                                        </variation>
-                                        <connections>
-                                            <action selector="handleSubmitForm" destination="fwZ-QE-5et" eventType="primaryActionTriggered" id="P4Z-lD-xDL"/>
-                                            <action selector="handleTextFieldDidChange:" destination="fwZ-QE-5et" eventType="editingChanged" id="XVe-MF-GAb"/>
-                                            <action selector="handleTextFieldEditingDidBegin:" destination="fwZ-QE-5et" eventType="editingDidBegin" id="Ym0-fX-Rxi"/>
-                                            <outlet property="delegate" destination="fwZ-QE-5et" id="lZB-d2-c6N"/>
-                                        </connections>
-                                    </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uga-PY-odR" customClass="NUXSubmitButton" customModule="WordPress" customModuleProvider="target">
-                                        <rect key="frame" x="169" y="162" width="37" height="34"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="nextButton"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="34" id="6hh-oj-F5g"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <state key="normal" title="NEXT">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="httpNextButton"/>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="handleSubmitButtonTapped:" destination="fwZ-QE-5et" eventType="touchUpInside" id="vTt-Dh-BeO"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your site's address is also known as a URL. It's the text you see at the top of the browser when viewing your site." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lfa-ou-227">
+                                <rect key="frame" x="20" y="544.5" width="335" height="64.5"/>
                                 <constraints>
-                                    <constraint firstItem="abA-Dp-ROZ" firstAttribute="leading" secondItem="MUP-7e-AqV" secondAttribute="leading" id="AEz-xr-bhP"/>
-                                    <constraint firstAttribute="trailing" secondItem="abA-Dp-ROZ" secondAttribute="trailing" id="fl1-R2-b0T"/>
-                                </constraints>
-                            </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i0i-OJ-pbi">
-                                <rect key="frame" x="136.5" y="619" width="103" height="28"/>
-                                <accessibility key="accessibilityConfiguration" identifier="addSelfHostedButton"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="28" id="1uH-mj-CyV"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <state key="normal" title="Need more help?">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Your site's address is also known as a URL. It's the text you see at the top of the browser when viewing your site." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j9j-9J-jD1">
-                                <rect key="frame" x="21" y="501" width="335" height="98"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="TnI-Bx-cqs"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="qIa-0U-PzW"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -1126,20 +1005,26 @@
                         </subviews>
                         <color key="backgroundColor" red="0.2298797518" green="0.52114713189999995" blue="0.72555196290000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="grQ-Nn-a06" firstAttribute="top" secondItem="i0i-OJ-pbi" secondAttribute="bottom" constant="20" id="0GQ-Jw-wjU"/>
-                            <constraint firstAttribute="trailing" secondItem="MUP-7e-AqV" secondAttribute="trailing" id="36P-Mq-woc"/>
-                            <constraint firstItem="i0i-OJ-pbi" firstAttribute="top" secondItem="j9j-9J-jD1" secondAttribute="bottom" constant="20" id="V6n-f1-RGV"/>
-                            <constraint firstItem="MUP-7e-AqV" firstAttribute="leading" secondItem="uUt-n0-zC5" secondAttribute="leading" id="bhy-9r-ck7"/>
-                            <constraint firstItem="i0i-OJ-pbi" firstAttribute="centerX" secondItem="uUt-n0-zC5" secondAttribute="centerX" id="c1e-El-AiC"/>
-                            <constraint firstItem="MUP-7e-AqV" firstAttribute="centerY" secondItem="uUt-n0-zC5" secondAttribute="centerY" constant="-100" id="pG8-s9-BFI"/>
-                            <constraint firstItem="j9j-9J-jD1" firstAttribute="width" secondItem="uUt-n0-zC5" secondAttribute="width" constant="-40" id="qcY-h0-4Fa"/>
-                            <constraint firstItem="j9j-9J-jD1" firstAttribute="centerX" secondItem="uUt-n0-zC5" secondAttribute="centerX" id="t6S-ZC-C3U"/>
+                            <constraint firstItem="989-r5-yYz" firstAttribute="centerY" secondItem="79B-Xy-b7C" secondAttribute="centerY" constant="-100" id="5Hu-ao-Cht"/>
+                            <constraint firstItem="989-r5-yYz" firstAttribute="leading" secondItem="79B-Xy-b7C" secondAttribute="leading" id="VZf-hV-eMO"/>
+                            <constraint firstItem="Lfa-ou-227" firstAttribute="leading" secondItem="79B-Xy-b7C" secondAttribute="leading" constant="20" id="g5m-yx-fJB"/>
+                            <constraint firstItem="adO-ez-fJ6" firstAttribute="centerX" secondItem="79B-Xy-b7C" secondAttribute="centerX" id="hGM-1e-N1h"/>
+                            <constraint firstAttribute="trailing" secondItem="Lfa-ou-227" secondAttribute="trailing" constant="20" id="nZX-yK-WOr"/>
+                            <constraint firstItem="adO-ez-fJ6" firstAttribute="top" secondItem="Lfa-ou-227" secondAttribute="bottom" constant="15" id="tgu-ad-W7J"/>
+                            <constraint firstAttribute="right" secondItem="989-r5-yYz" secondAttribute="right" id="tzt-7t-kHl"/>
+                            <constraint firstItem="oi1-YL-qyG" firstAttribute="top" secondItem="adO-ez-fJ6" secondAttribute="bottom" constant="15" id="zXf-hX-rT1"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="helpLabel" destination="Lfa-ou-227" id="hbc-To-Rc5"/>
+                        <outlet property="instructionLabel" destination="GNM-JR-DEh" id="EyX-zB-B8J"/>
+                        <outlet property="siteURLField" destination="ces-2W-SRN" id="QCO-B0-bfh"/>
+                        <outlet property="submitButton" destination="F56-2S-eLR" id="1WD-2I-q1q"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jyy-Ui-04S" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UuW-0h-YMh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="261.60000000000002" y="2185.4572713643179"/>
+            <point key="canvasLocation" x="262" y="1431"/>
         </scene>
         <!--Couldnt Find Address-->
         <scene sceneID="RkS-gN-wzY">

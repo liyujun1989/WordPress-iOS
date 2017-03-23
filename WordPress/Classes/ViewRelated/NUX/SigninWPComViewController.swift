@@ -104,30 +104,30 @@ import WordPressShared
     ///
     ///
     func configureForWPComOnlyIfNeeded() {
-        selfHostedButton.isHidden = restrictSigninToWPCom
+//        selfHostedButton.isHidden = restrictSigninToWPCom
     }
 
 
     /// Assigns localized strings to various UIControl defined in the storyboard.
     ///
     func localizeControls() {
-        usernameField.placeholder = NSLocalizedString("Email or username", comment: "Username placeholder")
-        usernameField.accessibilityIdentifier = "Email or username"
-        passwordField.placeholder = NSLocalizedString("Password", comment: "Password placeholder")
-        passwordField.accessibilityIdentifier = "Password"
-
-        let submitButtonTitle = NSLocalizedString("Log In", comment: "Title of a button. The text should be uppercase.").localizedUppercase
-        submitButton.setTitle(submitButtonTitle, for: UIControlState())
-        submitButton.setTitle(submitButtonTitle, for: .highlighted)
-        submitButton.accessibilityIdentifier = "Log In Button"
-
-        let forgotPasswordTitle = NSLocalizedString("Lost your password?", comment: "Title of a button. ")
-        forgotPasswordButton.setTitle(forgotPasswordTitle, for: UIControlState())
-        forgotPasswordButton.setTitle(forgotPasswordTitle, for: .highlighted)
-
-        let selfHostedTitle = NSLocalizedString("Add a self-hosted WordPress site", comment: "Title of a button. ")
-        selfHostedButton.setTitle(selfHostedTitle, for: UIControlState())
-        selfHostedButton.setTitle(selfHostedTitle, for: .highlighted)
+//        usernameField.placeholder = NSLocalizedString("Email or username", comment: "Username placeholder")
+//        usernameField.accessibilityIdentifier = "Email or username"
+//        passwordField.placeholder = NSLocalizedString("Password", comment: "Password placeholder")
+//        passwordField.accessibilityIdentifier = "Password"
+//
+//        let submitButtonTitle = NSLocalizedString("Log In", comment: "Title of a button. The text should be uppercase.").localizedUppercase
+//        submitButton.setTitle(submitButtonTitle, for: UIControlState())
+//        submitButton.setTitle(submitButtonTitle, for: .highlighted)
+//        submitButton.accessibilityIdentifier = "Log In Button"
+//
+//        let forgotPasswordTitle = NSLocalizedString("Lost your password?", comment: "Title of a button. ")
+//        forgotPasswordButton.setTitle(forgotPasswordTitle, for: UIControlState())
+//        forgotPasswordButton.setTitle(forgotPasswordTitle, for: .highlighted)
+//
+//        let selfHostedTitle = NSLocalizedString("Add a self-hosted WordPress site", comment: "Title of a button. ")
+//        selfHostedButton.setTitle(selfHostedTitle, for: UIControlState())
+//        selfHostedButton.setTitle(selfHostedTitle, for: .highlighted)
     }
 
 

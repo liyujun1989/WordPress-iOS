@@ -9,6 +9,8 @@ import WordPressShared
 //    @IBOutlet weak var verticalCenterConstraint: NSLayoutConstraint!
     @IBOutlet weak var siteURLField: WPWalkthroughTextField!
     @IBOutlet weak var submitButton: NUXSubmitButton!
+    @IBOutlet var instructionLabel: UILabel?
+    @IBOutlet var helpLabel: UILabel?
 
 
     lazy var loginFacade: LoginFacade = {
@@ -196,8 +198,14 @@ import WordPressShared
 
     }
 
-    func configureStatusLabel(_ message: String) {
-
+    func configureStatusLabel(_ message: String) {}
+    
+    func showExplaination() {
+        guard let helpLabel = helpLabel else {
+            return
+        }
+        
+        helpLabel.isHidden = false
     }
 
     
@@ -213,6 +221,10 @@ import WordPressShared
 
     @IBAction func handleSubmitButtonTapped(_ sender: UIButton) {
         validateForm()
+    }
+    
+    @IBAction func handleExplainTapped() {
+        showExplaination()
     }
 }
 

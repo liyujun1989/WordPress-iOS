@@ -56,16 +56,16 @@ class SigninLinkMailViewController: NUXAbstractViewController {
     /// Assigns localized strings to various UIControl defined in the storyboard.
     ///
     func localizeControls() {
-        let format = NSLocalizedString("We've sent your link to %@.", comment: "Short instructional text. The %@ is a placeholder for the user's email address.")
-        label.text = NSString(format: format as NSString, loginFields.username) as String
-
-        let openMailButtonTitle = NSLocalizedString("Open Mail", comment: "Title of a button. The text should be uppercase.  Clicking opens the mail app in the user's iOS device.").localizedUppercase
-        openMailButton.setTitle(openMailButtonTitle, for: UIControlState())
-        openMailButton.setTitle(openMailButtonTitle, for: .highlighted)
-
-        let usePasswordTitle = NSLocalizedString("Enter your password instead", comment: "Title of a button. ")
-        usePasswordButton.setTitle(usePasswordTitle, for: UIControlState())
-        usePasswordButton.setTitle(usePasswordTitle, for: .highlighted)
+//        let format = NSLocalizedString("We've sent your link to %@.", comment: "Short instructional text. The %@ is a placeholder for the user's email address.")
+//        label.text = NSString(format: format as NSString, loginFields.username) as String
+//
+//        let openMailButtonTitle = NSLocalizedString("Open Mail", comment: "Title of a button. The text should be uppercase.  Clicking opens the mail app in the user's iOS device.").localizedUppercase
+//        openMailButton.setTitle(openMailButtonTitle, for: UIControlState())
+//        openMailButton.setTitle(openMailButtonTitle, for: .highlighted)
+//
+//        let usePasswordTitle = NSLocalizedString("Enter your password instead", comment: "Title of a button. ")
+//        usePasswordButton.setTitle(usePasswordTitle, for: UIControlState())
+//        usePasswordButton.setTitle(usePasswordTitle, for: .highlighted)
     }
 
 
