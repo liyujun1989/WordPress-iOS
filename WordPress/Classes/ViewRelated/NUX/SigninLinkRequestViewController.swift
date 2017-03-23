@@ -92,21 +92,24 @@ class SigninLinkRequestViewController: NUXAbstractViewController {
             return
         }
 
-        configureLoading(true)
-        let service = AccountService(managedObjectContext: ContextManager.sharedInstance().mainContext)
-        service.requestAuthenticationLink(email,
-            success: { [weak self] in
-                self?.didRequestAuthenticationLink()
-                self?.configureLoading(false)
+        didRequestAuthenticationLink()
 
-            }, failure: { [weak self] (error: Error) in
-                WPAppAnalytics.track(.loginMagicLinkFailed)
-                guard let strongSelf = self else {
-                    return
-                }
-                strongSelf.displayError(error as NSError, sourceTag: strongSelf.sourceTag)
-                strongSelf.configureLoading(false)
-            })
+// Disabled while doing user testing.  Just assume the email is sent.
+//        configureLoading(true)
+//        let service = AccountService(managedObjectContext: ContextManager.sharedInstance().mainContext)
+//        service.requestAuthenticationLink(email,
+//            success: { [weak self] in
+//                self?.didRequestAuthenticationLink()
+//                self?.configureLoading(false)
+//
+//            }, failure: { [weak self] (error: Error) in
+//                WPAppAnalytics.track(.loginMagicLinkFailed)
+//                guard let strongSelf = self else {
+//                    return
+//                }
+//                strongSelf.displayError(error as NSError, sourceTag: strongSelf.sourceTag)
+//                strongSelf.configureLoading(false)
+//            })
     }
 
 
