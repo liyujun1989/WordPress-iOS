@@ -18,7 +18,8 @@
     WordPressOrgXMLRPCValidator *validator = [[WordPressOrgXMLRPCValidator alloc] init];
     [validator guessXMLRPCURLForSite:url success:success failure:^(NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            failure([self errorForGuessXMLRPCApiFailure:error]);
+//            failure([self errorForGuessXMLRPCApiFailure:error]);
+            failure(error);
         });
     }];
 }
@@ -41,6 +42,7 @@
         NSError *err = [NSError errorWithDomain:WordPressAppErrorDomain code:NSURLErrorBadURL userInfo:userInfo];
         return err;
     }
+
 }
 
 - (void)getBlogOptionsWithEndpoint:(NSURL *)xmlrpc
