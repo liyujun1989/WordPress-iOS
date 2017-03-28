@@ -54,13 +54,10 @@ import WordPressShared
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        replace(loginFields: LoginFields())
-
         configureTextFields()
         configureSubmitButton(animating: false)
         configureViewForEditingIfNeeded()
     }
-
 
     // MARK: Setup and Configuration
 

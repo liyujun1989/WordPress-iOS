@@ -47,6 +47,16 @@ import WordPressShared
         return controller
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let sender = sender as? UIButton else {
+            return
+        }
+
+        if sender == self.selfHostedSigninButton {
+            replace(loginFields: LoginFields())
+        }
+    }
+
 
     // MARK: Lifecycle Methods
 
