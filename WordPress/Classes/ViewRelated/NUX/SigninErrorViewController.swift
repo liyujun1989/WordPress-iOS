@@ -158,7 +158,7 @@ class SigninErrorViewController: UIViewController {
         }
 
         if error.code == 403 {
-            message = NSLocalizedString("Incorrect username or password. Please try entering your login details again.", comment: "An error message shown when a user signed in with incorrect credentials.")
+            message = NSLocalizedString("Unable to login with that password.", comment: "An error message shown when a user signed in with incorrect credentials.")
         }
 
         if message.trim().characters.count == 0 {

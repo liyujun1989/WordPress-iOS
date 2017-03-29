@@ -81,7 +81,8 @@ extension SigninWPComPasswordViewController: LoginFacadeDelegate {
     func displayRemoteError(_ error: Error!) {
         configureStatusLabel("")
         configureViewLoading(false)
-        displayError(error as NSError, sourceTag: sourceTag)
+        //displayError(error as NSError, sourceTag: sourceTag)
+        displayError(message: "Unable to login with that password", sourceTag: sourceTag)
     }
     
     
