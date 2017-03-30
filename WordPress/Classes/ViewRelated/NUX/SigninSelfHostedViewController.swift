@@ -9,6 +9,7 @@ import WordPressShared
     @IBOutlet weak var siteURLLabel: UILabel!
     @IBOutlet weak var usernameField: WPWalkthroughTextField!
     @IBOutlet weak var passwordField: WPWalkthroughTextField!
+    @IBOutlet weak var siteURLField: WPWalkthroughTextField!
     @IBOutlet weak var submitButton: NUXSubmitButton!
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var forgotPasswordButton: WPNUXSecondaryButton!
@@ -123,6 +124,10 @@ import WordPressShared
     func configureTextFields() {
         usernameField.text = loginFields.username
         passwordField.text = loginFields.password
+        if loginFields.siteUrl != "" {
+            siteURLField.text = loginFields.siteUrl
+            siteURLField.isHidden = true
+        }
     }
 
 
@@ -243,6 +248,8 @@ import WordPressShared
     @IBAction func handleTextFieldDidChange(_ sender: UITextField) {
         loginFields.username = usernameField.nonNilTrimmedText()
         loginFields.password = passwordField.nonNilTrimmedText()
+        loginFields.siteUrl = SigninHelpers.baseSiteURL(string: siteURLField.nonNilTrimmedText())
+
 
         configureForgotPasswordButton()
         configureSubmitButton(animating: false)
